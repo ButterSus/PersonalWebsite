@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="55106094">
+        <description>Created after removal of "Starter" from Kiwi Language Documentation</description>
+        <accepts>Starter.html</accepts>
+    </rule>
+    <rule id="2b28c14e">
+        <description>Created after removal of "Overview" from ButterSus's Personal Website</description>
+        <accepts>Overview.html</accepts>
+    </rule>
+</rules>
