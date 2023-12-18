@@ -321,10 +321,47 @@
 &\texttt{let}\,\lim_{n\to\infty}a_n\in\left\{\mathcal{A,B}\right\}& \\
 &\texttt{let}\,\varepsilon=\frac{\varepsilon}{2}\Rightarrow\forall{\,\varepsilon\gt0:}& \\
 &\underline{\left|\mathcal{A}-\mathcal{B}\right|}\le\left|a_n-\mathcal{A}\right|+\left|
-a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определению предела)}
+a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определению)} \\
+&\begin{cases}
+\mathcal{A}\gt\mathcal{B}\Rightarrow \begin{array}{ll}
+\left|\mathcal{A}-\mathcal{B}\right|=\mathcal{A}
+-\mathcal{B},\,\texttt{let}\,\varepsilon=\frac{\mathcal{A}-\mathcal{B}}{4}\\
+\Leftrightarrow \mathcal{A}-\mathcal{B}\lt \frac{\mathcal{A}-\mathcal{B}}{4}\Rightarrow
+\mathcal{A}\lt\mathcal{B}_\texttt{(противоречие)}
+\end{array} \\
+
+\mathcal{A}\lt\mathcal{B}\Rightarrow \begin{array}{ll}
+\left|\mathcal{A}-\mathcal{B}\right|=\mathcal{B}
+-\mathcal{A},\,\texttt{let}\,\varepsilon=\frac{\mathcal{A}-\mathcal{B}}{4}\\
+\Leftrightarrow \mathcal{B}-\mathcal{A}\lt \frac{\mathcal{A}-\mathcal{B}}{4}\Rightarrow
+\mathcal{A}\gt\mathcal{B}_\texttt{(противоречие)}
+\end{array} \\
+\Rightarrow\mathcal{A}=\mathcal{B}
+\end{cases}&
 \end{align}
 ```
 
 </procedure>
 
-### 6.3. Предел монотонной ограниченной последовательности
+### 6.3. Положительный предел
+
+Если последовательность сходится (имеет предел) к положительному числу, то начиная
+с некоторого номера все её значения будут больше нуля.
+
+```tex
+\lim_{n\to\infty}a_n=A\gt0\Rightarrow\exists{N},\,\forall{n\gt{N}}:a_n\gt0
+```
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,\varepsilon=\frac{\mathcal{A}}{2}\Rightarrow_\texttt{(определение предела)}\ldots:&\\
+&\underset{\texttt{=epsilon}}{-\frac{\mathcal{A}}{2}}\lt{\left|a_n-\mathcal{A}\right|}\lt\underset{\texttt{=epsilon}}{\frac{\mathcal{A}}{2}},
+\forall{n}\gt{N(\varepsilon)}&\\&\Leftrightarrow{\frac{\mathcal{A}}{2}}
+\lt{a_n}\lt\frac{3\mathcal{A}}{2}\Rightarrow\underline{a_n
+\gt\frac{\mathcal{A}}{2}\gt0,\,\forall{n}\gt{N(\varepsilon)}}&
+\end{align}
+```
+
+</procedure>
