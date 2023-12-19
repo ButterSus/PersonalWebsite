@@ -373,3 +373,81 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 ```tex
 \lim_{n\to\infty}a_n=A\Rightarrow\exists{A, B\in\mathbb{R}},\forall{n\in\mathbb{N}}:A\leq{a_n}\leq{B}
 ```
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,\varepsilon=1\Rightarrow_\texttt{(по определению предела)}\ldots:&\\
+&-1\lt{a_n}-\mathcal{A}\lt1,\forall{n\gt}N(\varepsilon)&\\
+&\Leftrightarrow \mathcal{A}-1\lt{a_n}\lt\mathcal{A}+1&\\
+&\Rightarrow \begin{aligned}
+&\texttt{let}\,\alpha=\min{\left(\mathcal{A}-1,
+\underset{\underline{\texttt{finite array}}}
+{\min_{i=1}^{N(1)}a_i}\right)}&\\
+&\texttt{let}\,\beta=\max{\left(\mathcal{A}+1,
+\underset{\underline{\texttt{finite array}}}
+{\min_{i=1}^{N(1)}a_i}\right)}&\\
+\end{aligned}&\\
+&\Rightarrow\forall{n\in\mathbb{N}}:\underline{\alpha\lt{a_n}\lt\beta}&
+\end{align}
+```
+
+</procedure>
+
+<note>
+Не все ограниченные последовательности сходятся.
+
+Например, последовательность `a_n=(-1)^n` ограничена, но не сходится.
+</note>
+
+## 8. Теорема о милиционерах
+
+Ещё эту теорему называют <emphasis>теоремой о зажатой последовательности</emphasis>.
+
+<procedure title="Формулировка">
+
+Если <format style="bold" color="DarkSeaGreen">последовательность</format> зажата
+<format style="bold" color="SlateBlue">сверху</format> и 
+<format style="bold" color="Tomato">снизу</format> сходящимися последовательностями, то она сходится к тому же пределу.
+
+```tex
+\begin{align}
+&\begin{cases}
+\forall{n\in\mathbb{N}}:a_n\leq{b_n}\leq{c_n} \\
+\lim_{n\to\infty}a_n=\lim_{n\to\infty}c_n=\mathcal{A}
+\end{cases}&\Rightarrow\lim_{n\to\infty}b_n=\mathcal{A}
+\end{align}
+```
+
+<img src="calculus_sandwich_theorem.png" alt="Теорема о милиционерах" width="400" align="right"/>
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\forall\varepsilon\gt0\Rightarrow_\texttt{(по определению предела)}\ldots:&\\
+&\begin{cases}
+\exists{N_1\in\mathbb{N}}:\forall{n\gt{N_1}}:\left|a_n-\mathcal{A}\right|\lt\varepsilon \\
+\exists{N_2\in\mathbb{N}}:\forall{n\gt{N_2}}:\left|c_n-\mathcal{A}\right|\lt\varepsilon
+\end{cases}&\\
+&\texttt{let}\,N=\max(N_1,N_2)\Rightarrow&\\
+&\Rightarrow\begin{cases}
+\forall{n\gt{N}}:\left|a_n-\mathcal{A}\right|\lt\varepsilon \\
+\forall{n\gt{N}}:\left|c_n-\mathcal{A}\right|\lt\varepsilon
+\end{cases}&\\
+&\Rightarrow\begin{cases}
+\mathcal{A}-\varepsilon\lt{a_n}\lt\mathcal{A}+\varepsilon \\
+\mathcal{A}-\varepsilon\lt{c_n}\lt\mathcal{A}+\varepsilon
+\end{cases}&\\
+&\Rightarrow\mathcal{A}-\varepsilon\lt{a_n}\leq{b_n}\leq{c_n}\lt\mathcal{A}+\varepsilon&\\
+&\Rightarrow\left|b_n-\mathcal{A}\right|\lt\varepsilon,\forall{n\gt{N}}&\\
+&\Rightarrow\lim_{n\to\infty}b_n=\mathcal{A}_\texttt{(как определение предела)}&
+\end{align}
+```
+
+</procedure>
+
+## 9. Арифметические действия с пределами
