@@ -352,3 +352,187 @@ a \overset{_\operatorname{div}}{=} 1&
 ```
 
 </procedure>
+
+### 1.7. Признаки делимости
+
+<tldr>
+
+Для удобства будем использовать десятичную запись числа `a` в следующем виде:
+
+```tex
+a = a_n \cdot 10^n + a_{n-1} \cdot 10^{n-1} + \ldots + a_1 \cdot 10 + a_0 = \sum_{i=0}^{n} a_i \cdot 10^i
+```
+
+</tldr>
+
+<tabs>
+<tab title="/= на  2">
+
+Число делится на 2 тогда и только тогда, когда последняя цифра числа делится на 2.
+
+<procedure>
+
+```tex
+\begin{align}
+&a \overset{_\operatorname{div}}{=} 2 \Leftrightarrow a_0 \overset{_\operatorname{div}}{=} 2&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&a = a_0 + \sum_{i=1}^{n} a_i \cdot 10^i&\\
+&\Rightarrow a_0 + \underset{\overset{_\operatorname{div}}{=} 2
+}{\underline{2(5)\cdot\sum_{i=0}^{n-1} a_i \cdot 10^i}} \overset{2}{\equiv} a&\\
+&\Leftrightarrow \underline{a_0 \overset{2}{\equiv} a}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="/= на  3">
+
+Число делится на 3 тогда и только тогда, когда сумма его цифр делится на 3.
+
+<procedure>
+
+```tex
+\begin{align}
+&a \overset{_\operatorname{div}}{=} 3 \Leftrightarrow \sum_{i=0}^{n} a_i \overset{_\operatorname{div}}{=} 3&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&a = \sum_{i=0}^{n} a_i \cdot 10^i&\\
+&\Rightarrow \sum_{i=0}^{n} a_i \cdot (3\times3+1)^i \overset{3}{\equiv} a&\\
+&\Leftrightarrow \sum_{i=0}^{n} a_i \cdot 1^i \overset{3}{\equiv} a
+\Leftrightarrow \underline{\sum_{i=0}^{n} a_i \overset{3}{\equiv} a}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="/= на  5">
+
+Число делится на 5 тогда и только тогда, когда последняя цифра числа делится на 5.
+
+<procedure>
+
+```tex
+\begin{align}
+&a \overset{_\operatorname{div}}{=} 5 \Leftrightarrow a_0 \overset{_\operatorname{div}}{=} 5&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&a = a_0 + \sum_{i=1}^{n} a_i \cdot 10^i&\\
+&\Rightarrow a_0 + \underset{\overset{_\operatorname{div}}{=} 5
+}{\underline{5(2)\cdot\sum_{i=0}^{n-1} a_i \cdot 10^i}} \overset{5}{\equiv} a&\\
+&\Leftrightarrow \underline{a_0 \overset{5}{\equiv} a}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="/= на  9">
+
+Число делится на 9 тогда и только тогда, когда сумма его цифр делится на 9.
+
+<procedure>
+
+```tex
+\begin{align}
+&a \overset{_\operatorname{div}}{=} 9 \Leftrightarrow \sum_{i=0}^{n} a_i \overset{_\operatorname{div}}{=} 9&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&a = \sum_{i=0}^{n} a_i \cdot 10^i&\\
+&\Rightarrow \sum_{i=0}^{n} a_i \cdot (9\times1+1)^i \overset{9}{\equiv} a&\\
+&\Leftrightarrow \sum_{i=0}^{n} a_i \cdot 1^i \overset{9}{\equiv} a
+\Leftrightarrow \underline{\sum_{i=0}^{n} a_i \overset{9}{\equiv} a}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="/= на  10">
+
+Число делится на 10 тогда и только тогда, когда последняя цифра числа равна 0.
+
+<procedure>
+
+```tex
+\begin{align}
+&a \overset{_\operatorname{div}}{=} 10 \Leftrightarrow a_0 = 0&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&a = a_0 + \sum_{i=1}^{n} a_i \cdot 10^i&\\
+&\Rightarrow a_0 + \underset{\overset{_\operatorname{div}}{=} 10
+}{\underline{10\cdot\sum_{i=0}^{n-1} a_i \cdot 10^i}} \overset{10}{\equiv} a&\\
+&\Leftrightarrow a_0 \overset{10}{\equiv} a
+\Leftrightarrow \underline{a_0 = 0}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="/= на  11">
+
+Число делится на 11 тогда и только тогда, разность сумм
+цифр на четных и нечетных позициях делится на 11.
+
+<procedure>
+
+```tex
+\begin{align}
+&a \overset{_\operatorname{div}}{=} 11 \Leftrightarrow
+\sum_{i=0}^{n} a_i\cdot(-1)^i \overset{_\operatorname{div}}{=} 11&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&a = \sum_{i=0}^{n} a_i \cdot 10^i&\\
+&\Rightarrow \ldots&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+</tabs>
