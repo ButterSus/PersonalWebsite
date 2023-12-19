@@ -6,6 +6,7 @@
                   start-page="Home.md">
     <toc-element topic="Home.md"/>
     <toc-element topic="Winter-Session.md">
+        <toc-element topic="Algebra.md"/>
         <toc-element topic="Calculus.md"/>
     </toc-element>
 </instance-profile>
