@@ -371,5 +371,5 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 Для всяких последовательностей, которые сходятся, справедливо то, что они ограничены.
 
 ```tex
-\lim_{n\to\infty}a_n=A\Rightarrow\exists{N},\,\forall{n\gt{N}}:a_n\in\left(A-\varepsilon,A+\varepsilon\right)
+\lim_{n\to\infty}a_n=A\Rightarrow\exists{A, B\in\mathbb{R}},\forall{n\in\mathbb{N}}:A\leq{a_n}\leq{B}
 ```
