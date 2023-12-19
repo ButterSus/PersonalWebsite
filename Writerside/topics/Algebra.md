@@ -58,6 +58,21 @@ a = bq + r\\0 \leq r < |b|&
 
 </procedure>
 
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{Следуем от противного:}&\\
+&\texttt{let}\,a = bq_1 + r_1 = bq_2 + r_2, r_1 \lt r_2&\\
+&\Rightarrow b(q_1 - q_2) = r_2 - r_1, q_1 - q_2 \ge 1_\texttt{(так как остатки не равны)}&\\
+&\Rightarrow r_2 - r_1 \ge b(q_1 - q_2) \ge b&\\
+&\texttt{let}\,r_1\in\left[0, b-1\right]\Rightarrow 
+\underset{\notin\left[0, b-1\right]}{\underline{r_2\in\left[b, 2b-1\right]}}\,_\texttt{(противоречие)}&
+\end{align}
+```
+
+</procedure>
+
 <note>
 
 ```tex
@@ -239,6 +254,10 @@ a \overset{_\operatorname{div}}{=} 1&
 ```
 
 </procedure>
+
+<note>
+Таким образом, число 1 не является простым числом.
+</note>
 
 #### 1.4.2. Определение взаимно простых чисел
 
@@ -527,8 +546,18 @@ a = a_n \cdot 10^n + a_{n-1} \cdot 10^{n-1} + \ldots + a_1 \cdot 10 + a_0 = \sum
 
 ```tex
 \begin{align}
-&a = \sum_{i=0}^{n} a_i \cdot 10^i&\\
-&\Rightarrow \ldots&
+&a = \sum_{i=0}^{n} a_i \cdot 10^i\Rightarrow \sum_{i=0}^{n} a_i \overset{11}{\equiv} a&\\
+&\Leftrightarrow \sum_{i=0}^{\left[\frac{n}{2}\right]} a_{2i} \cdot 10^{2i}+
+\sum_{i=0}^{\left[\frac{n+1}{2}\right]} a_{2i+1} \cdot 10^{2i+1} \overset{11}{\equiv} a&\\
+&\Leftrightarrow \sum_{i=0}^{\left[\frac{n}{2}\right]} a_{2i} \cdot \underset{=10^2}
+{\underline{(9\times11+1)}}^i+
+\sum_{i=0}^{\left[\frac{n+1}{2}\right]} a_{2i+1} \cdot \underset{=10^2}{\underline{(9\times11+1)}}
+^i\cdot\underset{=10^1}{\underline{(11\times1-1)}} \overset{11}{\equiv} a&\\
+&\Leftrightarrow \sum_{i=0}^{\left[\frac{n}{2}\right]} a_{2i} \cdot 1^i+
+\sum_{i=0}^{\left[\frac{n+1}{2}\right]} a_{2i+1} \cdot 1^i\cdot(-1) \overset{11}{\equiv} a&\\
+&\Leftrightarrow \sum_{i=0}^{\left[\frac{n}{2}\right]} a_{2i}-
+\sum_{i=0}^{\left[\frac{n+1}{2}\right]} a_{2i+1} \overset{11}{\equiv} a
+\Leftrightarrow \underline{\sum_{i=0}^{n} a_i\cdot(-1)^i \overset{11}{\equiv} a}&
 \end{align}
 ```
 
