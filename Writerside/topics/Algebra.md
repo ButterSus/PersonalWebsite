@@ -225,11 +225,49 @@ a = bq + r\\0 \leq r < |b|&
 
 </procedure>
 
+#### 1.3.3. Сравнимость по модулю
+
+<emphasis>Сравнимость по модулю</emphasis> - это отношение, которое устанавливается между двумя целыми
+числами `a` и `b`, если их разность делится на `m`.
+
+<procedure>
+
+```tex
+\begin{align}
+&a, b \in \mathbb{Z},\ m \in \mathbb{N}\Rightarrow&\\
+&a \overset{m}{\equiv} b \Leftrightarrow a - b \overset{_\operatorname{div}}{=} m&
+\end{align}
+```
+
+</procedure>
+
+<tip>
+По сути, это значит, что `a` и `b` дают одинаковые остатки при делении на `m`.
+</tip>
+
+#### 1.3.4. Классы вычетов
+
+<emphasis>Класс вычетов</emphasis> - это множество целых чисел, которые дают одинаковые остатки при делении на `m`.
+
+<emphasis>Множество вычетов</emphasis> - это множество всех классов вычетов.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{мно-во вычетов}:\ \left[a\right]_m = \left\{\overline{0},
+\overline{1}, \ldots, \overline{m-1}\right\};&\\
+&\texttt{класс вычетов}:\ \overline{a} = \left\{a + mq\right\},\ q \in \mathbb{Z}&
+\end{align}
+```
+
+</procedure>
+
 ### 1.4 Простые числа
 
 #### 1.4.1. Определение простого числа
 
-Простое число - это натуральное число, которое делится только на 1 и на само себя.
+<emphasis>Простое число</emphasis> - это натуральное число, которое делится только на 1 и на само себя.
 
 <procedure>
 
@@ -261,7 +299,7 @@ a \overset{_\operatorname{div}}{=} 1&
 
 #### 1.4.2. Определение взаимно простых чисел
 
-Взаимно простые числа - это целые числа, которые не имеют общих делителей, кроме 1, -1.
+<emphasis>Взаимно простые числа</emphasis> - это целые числа, которые не имеют общих делителей, кроме 1, -1.
 
 <procedure>
 
@@ -311,6 +349,101 @@ a \overset{_\operatorname{div}}{=} 1&
 
 </procedure>
 
+#### 1.4.4. Простых чисел бесконечно много
+
+Множество простых чисел бесконечно. Это можно доказать от противного.
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{Следуем от противного:}&\\
+&\texttt{let}\,p_1, p_2, \ldots, p_n\texttt{ - все простые числа}&\\
+&\texttt{let}\,N = p_1p_2\ldots p_n + 1&\\
+&\Rightarrow\texttt{по теореме о делении с остатком}\Rightarrow&\\
+&\exists p_i:\ p_i \overset{_\operatorname{div}}{=} N&\\
+&\Rightarrow p_i \overset{_\operatorname{div}}{=} p_1p_2\ldots p_n + 1&\\
+&\Rightarrow p_i \overset{_\operatorname{div}}{=} 1\texttt{ (противоречие)}&
+\end{align}
+```
+
+</procedure>
+
+#### 1.4.5. Малая теорема Ферма
+
+Если `p` - простое число, а `a` не делится на `p`, то `a^(p-1) - 1` делится на `p`.
+
+<procedure>
+
+```tex
+\begin{align}
+&p \texttt{ - простое},\ a \overset{_\operatorname{div}}{\neq} p\Rightarrow&\\
+&a^{p-1} \overset{p}{\equiv} a& 
+\end{align}
+```
+
+</procedure>
+
+<tip>
+Доказательство на сессии не требуется.
+
+Такой способ не гарантирует, что если `p` подходит, то оно простое. (псевдопростые числа)
+</tip>
+
+#### 1.4.6. Теорема Вильсона
+
+Число `p` - простое тогда и только тогда, когда `(p-1)! + 1` делится на `p`.
+
+<procedure>
+
+```tex
+\begin{align}
+&p \texttt{ - простое}\Leftrightarrow&\\
+&(p-1)! + 1 \overset{_\operatorname{div}}{=} p&
+\end{align}
+```
+
+</procedure>
+
+<tip>
+Доказательство на сессии не требуется.
+</tip>
+
+#### 1.4.7. Теорема Евклида
+
+Наибольший общий делитель двух чисел равен наибольшему 
+общему делителю остатка на деления большего делителя
+на меньший делитель и меньшего делителя.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{let}\,a, b \in \mathbb{Z},\ \texttt{let}\,r\overset{b}{\equiv} a&\\
+&\Rightarrow \operatorname{gcd}(a, b) = \operatorname{gcd}(b, r)&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,d = \operatorname{gcd}(a, b)&\\
+&\Rightarrow\begin{cases}
+a = dq_a\\
+b = dq_b&
+\end{cases}&\\
+&\Rightarrow r = dq_a - dq_b * k = d\underset{\ge0}
+{\underline{(q_a - q_bk)}}&\\
+&\Rightarrow r \overset{d}{\equiv} 0
+\Rightarrow \underline{d \overset{_\operatorname{div}}{=} \operatorname{gcd}(b, r)}&
+\end{align}
+```
+
+</procedure>
+
 ### 1.5. Теорема о наибольшем общем делителе
 
 Аналогично [Теореме о взаимно простых числах](#1-4-2), только теперь `a` и `b` заданы произвольно.
@@ -342,7 +475,8 @@ a \overset{_\operatorname{div}}{=} 1&
 
 ### 1.6. Разрешимость линейного диофантова уравнения
 
-Линейное диофантово уравнение - это уравнение вида `ax + by = c`, где `a`, `b`, `c` - целые числа, `x`, `y` - неизвестные.
+<emphasis>Линейное диофантово уравнение</emphasis> - 
+это уравнение вида `ax + by = c`, где `a`, `b`, `c` - целые числа, `x`, `y` - неизвестные.
 
 Такое уравнение имеет решение тогда и только тогда, когда `c` делится на `d = gcd(a, b)`.
 
@@ -565,3 +699,4 @@ a = a_n \cdot 10^n + a_{n-1} \cdot 10^{n-1} + \ldots + a_1 \cdot 10 + a_0 = \sum
 </tab>
 
 </tabs>
+
