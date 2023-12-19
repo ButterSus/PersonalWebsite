@@ -451,3 +451,125 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 </procedure>
 
 ## 9. Арифметические действия с пределами
+
+<tldr>
+
+```tex
+\begin{align}
+&\text{let}\,\mathcal{A}=\lim_{n\to\infty}a_n&\\
+&\text{let}\,\mathcal{B}=\lim_{n\to\infty}b_n&\\
+\end{align}
+\texttt{Будем использовать эти обозначения в дальнейшем.}
+```
+
+</tldr>
+
+Все эти действия с пределами можно делать только в том случае, если пределы существуют.
+Иногда бывает так, что одного из пределов не существует, но <shortcut>сумма/разность/...</shortcut> существуют.
+
+<tabs>
+<tab title="Сумма">
+<tip>
+
+```tex
+\lim_{n\to\infty}\left(a_n+b_n\right)=\mathcal{A}+\mathcal{B}
+```
+
+</tip>
+
+<procedure title="Доказательство">
+
+```tex
+\begin{align}
+&\texttt{let}\,\varepsilon=\frac\varepsilon2\Rightarrow_
+\texttt{(по определению предела)}\ldots:&\\
+&\left|\left(a_n-\mathcal{A}\right)+\left(b_n-\mathcal{B}\right)\right|
+=\underline{\left|\left(a_n+b_n\right)-\left(\mathcal{A}+\mathcal{B}\right)\right|}&\\
+&\le\left|a_n-\mathcal{A}\right|+\left|b_n-\mathcal{B}\right|\lt\underset
+{=2\times\frac\varepsilon2}{\underline{\varepsilon}}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="Разность">
+<tip>
+
+```tex
+\lim_{n\to\infty}\left(a_n-b_n\right)=\mathcal{A}-\mathcal{B}
+```
+
+</tip>
+
+<procedure title="Доказательство">
+
+```tex
+\begin{align}
+&\texttt{let}\,\varepsilon=\frac\varepsilon2\Rightarrow_
+\texttt{(по определению предела)}\ldots:&\\
+&\left|\left(a_n-\mathcal{A}\right)-\left(b_n-\mathcal{B}\right)\right|
+=\underline{\left|\left(a_n-b_n\right)-\left(\mathcal{A}-\mathcal{B}\right)\right|}&\\
+&\le\left|a_n-\mathcal{A}\right|+\left|b_n-\mathcal{B}\right|\lt\underset
+{=2\times\frac\varepsilon2}{\underline{\varepsilon}}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="Произведение">
+<tip>
+
+```tex
+\lim_{n\to\infty}\left(a_n\times{b_n}\right)=\mathcal{A}\times\mathcal{B}
+```
+
+</tip>
+
+<procedure title="Доказательство">
+
+```tex
+\begin{align}
+&\forall\varepsilon_1,\varepsilon_2\gt0:\begin{cases}
+\left|a_n-\mathcal{A}\right|\lt\varepsilon_1\\
+\left|b_n-\mathcal{B}\right|\lt\varepsilon_2
+\end{cases}\,\texttt{let}\,M\in\mathbb{R}:M\ge{b_n},
+\forall{n\in\mathbb{N}}&\\&\Leftrightarrow\left|\left(a_n\right)
+\times b_n-\mathcal{A}\times\left(\mathcal{B}\right)\right|
+=\left|\left(a_n-\mathcal{A}\right)\times b_n-\mathcal{A}
+\times\left(\mathcal{B}-b_n\right)\right|&\\
+&=\left|\left(a_n-\mathcal{A}\right)\times b_n+\mathcal{A}
+\times\left(b_n-\mathcal{B}\right)\right|\le\left|a_n-\mathcal{A}
+\right|\times\left|b_n\right|+\left|\mathcal{A}\right|\times
+\left|b_n-\mathcal{B}\right|&\\&\lt\varepsilon_1\times\underset
+{\ge b_n}{M}+\left|\mathcal{A}\right|\times\varepsilon_2,\,\texttt{let}\,
+\varepsilon_1=\frac\varepsilon{2M};\varepsilon_2=\frac\varepsilon{2\left|
+\mathcal{A}\right|}&\\&\Rightarrow \left|a_n\times b_n-\mathcal{A}\times
+\mathcal{B}\right|\lt\frac\varepsilon{2M}\times{M}+\frac\varepsilon{2
+\left|\mathcal{A}\right|}\times\left|\mathcal{A}\right|=
+\varepsilon_\texttt{(как определение предела)}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="Частное">
+<tip>
+
+```tex
+\lim_{n\to\infty}\frac{1}{b_n}=\frac{1}{\mathcal{B}}
+```
+
+</tip>
+
+<procedure title="Доказательство">
+
+```tex
+1
+```
+
+</procedure>
+</tab>
+</tabs>
