@@ -291,3 +291,64 @@ a \overset{_\operatorname{div}}{=} 1&
 ```
 
 </procedure>
+
+### 1.5. Теорема о наибольшем общем делителе
+
+Аналогично [Теореме о взаимно простых числах](#1-4-2), только теперь `a` и `b` заданы произвольно.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{let}\,a, b \in \mathbb{Z}\Rightarrow&\\
+&\exists x_0, y_0 \in \mathbb{Z}:\ ax_0 + by_0 = \operatorname{gcd}(a, b)&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,d = \operatorname{gcd}(a, b)&\\
+&\Rightarrow\texttt{let}\,a = dq_a,\ b = dq_b&\\
+&\ldots_\texttt{(по теореме о взаимно простых числах)}&\\
+&\Rightarrow\exists x_0, y_0 \in \mathbb{Z}:\ q_ax_0 + q_by_0 = 1\,|\times{d}&\\
+&\Leftrightarrow\exists x_0, y_0 \in \mathbb{Z}:\ \underline{ax_0 + by_0 = d}&\\
+\end{align}
+```
+
+</procedure>
+
+### 1.6. Разрешимость линейного диофантова уравнения
+
+Линейное диофантово уравнение - это уравнение вида `ax + by = c`, где `a`, `b`, `c` - целые числа, `x`, `y` - неизвестные.
+
+Такое уравнение имеет решение тогда и только тогда, когда `c` делится на `d = gcd(a, b)`.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{let}\,a, b, c \in \mathbb{Z}\Rightarrow&\\
+&\exists x_0, y_0 \in \mathbb{Z}:\ ax_0 + by_0 = c&\\
+&\Leftrightarrow c \overset{_\operatorname{div}}{=} \operatorname{gcd}(a, b)&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,a, b, c \in \mathbb{Z}\Rightarrow&\\
+&\texttt{let}\,d = \operatorname{gcd}(a, b)&\\
+&\Rightarrow ax + by = c&\\
+&\Leftrightarrow q_ax + q_by = \frac{c}{d}&\\
+&\Rightarrow\frac{c}{d}\in \mathbb{Z}\Rightarrow \underline{c \overset{_\operatorname{div}}{=} d}&
+\end{align}
+```
+
+</procedure>
