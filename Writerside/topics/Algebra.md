@@ -700,3 +700,70 @@ a = a_n \cdot 10^n + a_{n-1} \cdot 10^{n-1} + \ldots + a_1 \cdot 10 + a_0 = \sum
 
 </tabs>
 
+### 1.8. НОД и НОК
+
+<emphasis>Наибольший общий делитель</emphasis> - это наибольшее число, на которое делятся оба числа.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{let}\,a, b \in \mathbb{Z}\Rightarrow&\\
+&\operatorname{gcd}(a, b) = \max\left\{d\in\mathbb{N}:\begin{cases}
+a \overset{_\operatorname{div}}{=} d\\
+b \overset{_\operatorname{div}}{=} d&
+\end{cases}\right\}&
+\end{align}
+```
+
+</procedure>
+
+<emphasis>Наименьшее общее кратное</emphasis> - это наименьшее число, которое делится на оба числа.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{let}\,a, b \in \mathbb{Z}\Rightarrow&\\
+&\operatorname{lcm}(a, b) = \min\left\{d\in\mathbb{N}:\begin{cases}
+d \overset{_\operatorname{div}}{=} a\\
+d \overset{_\operatorname{div}}{=} b&
+\end{cases}\right\}&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Связь НОД и НОК" collapsible="true">
+
+```tex
+\begin{align}
+&\operatorname{gcd}(a, b) \cdot \operatorname{lcm}(a, b) = ab&
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,d = \operatorname{gcd}(a, b),\ k = \operatorname{lcm}(a, b)&\\
+&\Rightarrow\begin{cases}
+a = dq_a\\
+b = dq_b&
+\end{cases}&\\
+&\Rightarrow k = \operatorname{lcm}(dq_a, dq_b)&\\
+&\Rightarrow k = \min\left\{d\in\mathbb{N}:\begin{cases}
+d \overset{_\operatorname{div}}{=} dq_a\\
+d \overset{_\operatorname{div}}{=} dq_b&
+\end{cases}\right\}&\\
+&\Rightarrow k = \min\left\{d\in\mathbb{N}:\begin{cases}
+d \overset{_\operatorname{div}}{=} a\\
+d \overset{_\operatorname{div}}{=} b&
+\end{cases}\right\}&\\
+&\Rightarrow k = ab&
+\end{align}
+```
+
+</procedure>
