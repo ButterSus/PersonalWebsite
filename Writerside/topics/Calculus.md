@@ -15,17 +15,129 @@
 ### 1.1. Определение множества
 
 <tabs>
-    <tab title="Множество">
-        Это совокупность различных объектов, называемых элементами множества.
-        <img src="calculus_set.png" alt="Множество" width="200" align="right"/>
-    </tab>
-    <tab title="Числовое множество">
-        Это множество, элементами которого являются числа.
-        <img src="calculus_set_of_numbers.png" alt="Числовое множество" width="300" align="right"/>
-    </tab>
+
+<tab title="Множество">
+Это совокупность различных объектов, называемых элементами множества.
+
+При этом вся совокупность воспринимается как единое целое.
+
+<img src="calculus_set.png" alt="Множество" width="200" align="right"/>
+</tab>
+
+<tab title="Числовое множество">
+Это множество, элементами которого являются числа.
+<img src="calculus_set_of_numbers.png" alt="Числовое множество" width="300" align="right"/>
+</tab>
+
 </tabs>
 
-### 1.2. Стандартные множества
+<tip>
+Множество обычно обозначается заглавными буквами, однако опционально можно использовать
+<emphasis>blackboard bold</emphasis> шрифт.
+
+```tex
+\begin{align}
+&\mathbb{BLACKBOARD\ BOLD}\Rightarrow\mathbb{A}&\\
+&DEFAULT\Rightarrow{A}&
+\end{align}
+```
+
+</tip>
+
+### 1.2. Типы множеств
+
+Общая диаграмма типов множеств:
+
+```mermaid
+graph TD
+    A[Типы множеств] --> B[Конечное множество]
+    A --> C[Бесконечное множество]
+    C --> D[Счётное множество]
+    C --> E[Несчётное множество]
+```
+
+<tabs>
+<tab title="Конечные">
+В конечном множестве количество элементов <emphasis>конечно</emphasis>. В таком множестве однозначно
+можно найти последний и первый элементы.
+
+Например, множество натуральных чисел от 1 до 10.
+
+<procedure>
+
+```tex
+\mathbb{A}= \{a_1, a_2, \ldots, a_n\}
+```
+
+</procedure>
+</tab>
+<tab title="Бесконечные">
+В бесконечном множестве количество элементов <emphasis>бесконечно</emphasis>. В таком множестве нельзя найти или
+последний, или первый элементы.
+
+Например, множество натуральных чисел, так как их бесконечно много.
+
+<procedure>
+
+```tex
+\mathbb{A}= \{a_1, a_2, \ldots\}
+```
+
+</procedure>
+</tab>
+<tab title="Счётные">
+В счётном множестве можно последовательно перечислять элементы (первый, второй, третий, ...).
+
+<procedure title="Точная формулировка (для ботанов)" collapsible="true">
+
+<emphasis>Счётное множество</emphasis> - множество, в котором можно установить взаимнооднозначное
+соответствие (биекция) между элементами этого множества и множества натуральных
+чисел. (При биективном отображении каждому элементу одного множества соответствует
+ровно один элемент другого множества, при этом определено обратное отображение,
+которое обладает тем же свойством.)
+
+```mermaid
+graph LR
+    A[Элемент множества] -- взаимнооднозначное соответствие --> B[Натуральное число]
+```
+
+</procedure>
+
+<note>
+
+Из стандартных множеств счётными являются:
+
+```tex
+\mathbb{N}, \mathbb{Z}, \mathbb{Q}
+```
+
+</note>
+
+</tab>
+<tab title="Несчётные">
+В несчётном множестве нельзя последовательно перечислять элементы (первый, второй, третий, ...).
+
+<procedure title="Точная формулировка (для ботанов)" collapsible="true">
+
+<emphasis>Несчётное множество</emphasis> - множество, которое нельзя упорядочить в
+виде последовательности, в которой каждый элемент имеет свой номер.
+
+</procedure>
+
+<note>
+Из стандартных множеств несчётными являются:
+
+```tex
+\mathbb{R}, \mathbb{C}
+```
+
+</note>
+</tab>
+</tabs>
+
+### 1.3. Стандартные множества
+
+Здесь представлены лишь самые базовые множества, которые вам понадобятся на экзамене.
 
 <procedure collapsible="true" title="Принято обозначать стандартные множества следующим образом:">
 
@@ -43,47 +155,209 @@
 
 </procedure>
 
-### 1.3. Операции над множествами
+<tip>
+Иногда мы используем следующие множества:
+
+```tex
+\begin{align}
+&\varnothing=\{\}& \texttt{(пустое множество)} \\
+&\mathbb{P}=\{2, 3, 5, 7, 11, \ldots\} & \texttt{(множество простых чисел)} \\
+&\mathbb{N}\setminus\mathbb{P}\setminus\{1\}=\{4, 6, 8, 9, 10, \ldots\} & \texttt{(множество составных чисел)}
+\end{align}
+```
+
+</tip>
+
+### 1.4. Операции над множествами
 
 <tabs>
     <tab title="Объединение">
+         <procedure>
         <code-block lang="tex">$\forall A, B: A \cup B=\{x \mid x \in A \vee x \in B\}</code-block>
         <img src="calculus_union.png" alt="Объединение" width="200" align="right"/>
+         </procedure>
         <tip>
             <code-block lang="tex">$\texttt{Математическая запись:}\,\Large\pmb{\cup}</code-block>
         </tip>
     </tab>
     <tab title="Пересечение">
+         <procedure>
         <code-block lang="tex">$\forall A, B: A \cap B=\{x \mid x \in A \wedge x \in B\}</code-block>
         <img src="calculus_intersection.png" alt="Пересечение" width="200" align="right"/>
+         </procedure>
         <tip>
             <code-block lang="tex">$\texttt{Математическая запись:}\,\Large\pmb{\cap}</code-block>
         </tip>
     </tab>
     <tab title="Разность">
+         <procedure>
         <code-block lang="tex">$\forall A, B: A \setminus B=\{x \mid x \in A \wedge x \notin B\}</code-block>
         <img src="calculus_difference.png" alt="Разность" width="200" align="right"/>
+         </procedure>
         <tip>
             <code-block lang="tex">$\texttt{Математическая запись:}\,\Large\pmb{\setminus}</code-block>
         </tip>
     </tab>
     <tab title="Симметрическая разность">
+         <procedure>
         <code-block lang="tex">$\forall A, B: A \triangle B=(A \setminus B) \cup(B \setminus A)</code-block>
         <img src="calculus_symmetric_difference.png" alt="Симметрическая разность" width="200" align="right"/>
+         </procedure>
         <tip>
             <code-block lang="tex">$\texttt{Математическая запись:}\,\Large\pmb{\triangle}</code-block>
         </tip>
     </tab>
 </tabs>
 
-### 1.4. Основная формула включений и исключений
+### 1.5. Подмножество
+
+Одно множество может содержать все элементы другого множества.
+Такое множество называется <emphasis>подмножеством</emphasis>.
+
+<procedure>
+<img src="calculus_subset.png" alt="Подмножество" width="200" align="right"/>
+
+В данном случае `A` является подмножеством `B`:
+
+```tex
+A \subseteq B \Leftrightarrow \forall x \in A \Rightarrow x \in B \Leftrightarrow A \cap B = A
+```
+</procedure>
+
+<note>
+Так например, множество всех натуральных чисел является подмножеством множества всех целых чисел.
+
+```tex
+\mathbb{N} \subseteq \mathbb{Z}
+```
+</note>
+
+### 1.6. Декартово произведение
+
+<emphasis>Декартово произведение</emphasis> — это множество всех упорядоченных пар элементов двух множеств.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{let}\,A, B\,\texttt{— множества}& \\
+&A \times B = \{(a, b) \mid a \in A, b \in B\}&
+\end{align}
+```
+
+</procedure>
+
+<tip>
+Например, декартово произведение множеств `A` и `B`:
+
+```tex
+\begin{align}
+&A = \{1, 2\}, B = \{3, 4\}& \\
+&A \times B = \{(1, 3), (1, 4), (2, 3), (2, 4)\}&
+\end{align}
+```
+</tip>
+
+### 1.7. Мощность множества
+
+<emphasis>Мощность множества</emphasis> — это количество элементов в множестве.
+
+<procedure>
+
+```tex
+\begin{align}
+&\texttt{let}\,A=\{-1,2,-3,4,-5\}\ \texttt{- множество}& \\
+&\left|A\right|=5\ \texttt{- мощность множества}&\\
+&\left|\varnothing\right|=0\ \texttt{- мощность пустого множества}&
+\end{align}
+```
+
+</procedure>
+
+Не всегда мощность множества конечна, например, мощность множества натуральных чисел выражается дичью.
+
+<tabs>
+<tab title="Углубленный материал">
+
+**Бесконечные множества**:
+
+Для обозначения мощности бесконечных множеств используют символ <shortcut>aleph</shortcut>,
+причём чем больше мощность множества, тем больше индекс у символа.
+
+<procedure>
+
+```tex
+\left|\mathbb{N}\right|=\aleph_0
+```
+
+</procedure>
+
+Мощности бесконечных множеств - целый отдельный раздел в теории множеств,
+но могу сказать в общих словах:
+
+<procedure>
+
+Для мощностей, как и в случае конечных множеств, имеются понятия: `равенство`, `больше`, `меньше`.
+То есть для любых множеств `A` и `B` возможно только одно из трёх:
+1. `|A| = |B|`, то они равномощны.
+2. `|A| < |B|`, то B мощнее A -> в этом случае B содержит подмножество, равномощное A, но A и B не равномощны.
+3. `|A| > |B|`, то A мощнее B -> в этом случае A содержит подмножество, равномощное B, но A и B не равномощны.
+4. Ситуации, в которой A и B не равномощны и при этом ни в одном из них нет части, равномощной другому,
+невозможна по теореме Цермело.
+5. Ситуации, в которой `|A| > |B|` и `|B| > |A|` невозможна по теореме Кантора-Бернштейна.
+
+</procedure>
+
+И очень частным случаем является мощность множества действительных чисел:
+
+```tex
+\left|\mathbb{R}\right|=\mathfrak c=2^{\aleph_0}>\aleph_0
+```
+
+В этом случае `c` - мощность континуума.
+</tab>
+</tabs>
+
+### 1.8. Основная формула включений и исключений
 
 Запомните формулу включений и исключений, она пригодится вам на экзамене.
+
+<procedure>
 
 ```tex
 \left|\bigcup_{i=1}^{n}A_i\right|=\sum^n_{i=1}\left|A_i\right|-\sum^n_{i\lt j}\left|A_{ij}\right|+\sum^n_{i\lt j\lt k}\left|A_{ijk}\right|-\ldots
 +\left(-1\right)^n\sum^n_{i\ldots}\left|A_{i\ldots}\right|
 ```
+
+</procedure>
+
+Чаще, когда речь идёт о решении практических задач, используют немного иной вид формулы:
+
+<procedure>
+
+```tex
+N(\overline{a}_1 \ldots \overline{a}_n) =
+N - \sum_{i} N(a_i) + \sum_{i< j} N(a_i a_j) - 
+\sum_{i< j<k} N(a_i a_j a_k) + \ldots + (-1)^n N(a_1 \ldots a_n).
+```
+
+</procedure>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,x\in\bigcup_{i=1}^{n}A_i& \\
+&\Rightarrow\exists{i}\in\{1, 2, \ldots, n\}:x\in{A_i}& \\
+&\Rightarrow\sum^n_{i=1}\left|A_i\right|& \\
+&\texttt{let}\,x\in\bigcap_{i=1}^{n}A_i& \\
+&\Rightarrow\forall{i}\in\{1, 2, \ldots, n\}:x\in{A_i}& \\
+&\Rightarrow\sum^n_{i=1}\left|A_i\right|-\sum^n_{i\lt j}\left|A_{ij}\right|+\sum^n_{i\lt j\lt k}\left|A_{ijk}\right|-\ldots
++\left(-1\right)^n\sum^n_{i\ldots}\left|A_{i\ldots}\right|&
+\end{align}
+```
+
+</procedure>
 
 ## 2. Числовые функции
 
