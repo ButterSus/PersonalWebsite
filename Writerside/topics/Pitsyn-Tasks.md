@@ -44,7 +44,9 @@ x=\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n};\ \texttt{Доказать, что:
 
 ## Гроб 3
 
-Это расширенная версия теоремы Вильсона.
+[wilson_theorem]: https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_%D0%92%D0%B8%D0%BB%D1%8C%D1%81%D0%BE%D0%BD%D0%B0
+
+Это расширенная версия [теоремы Вильсона][wilson_theorem]{ignore-vars="true"}.
 
 <procedure title="Условие задачи">
 
@@ -54,6 +56,56 @@ x=\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n};\ \texttt{Доказать, что:
 &\texttt{Чему равен}\,f(x)\,\texttt{при:}&\\
 &\texttt{a)}\,?x\in\mathbb{P}&\\
 &\texttt{б)}\,?x\in\mathbb{N}\setminus\mathbb{P}&\\
+\end{align}
+```
+
+</procedure>
+
+## Гроб 4
+
+[mersenne_prime]: https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%BE_%D0%9C%D0%B5%D1%80%D1%81%D0%B5%D0%BD%D0%BD%D0%B0
+[fermat_prime]: https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%BE_%D0%A4%D0%B5%D1%80%D0%BC%D0%B0
+
+Задача, где с одной стороны - [числа Мерсенна][mersenne_prime]{ignore-vars="true"},
+а с другой - [числа Ферма][fermat_prime]{ignore-vars="true"}.
+
+<procedure title="Условие задачи">
+
+```tex
+\begin{align}
+&\texttt{let}\,f(x)=2^x-1&\\
+&\texttt{let}\,g(x)=2^x+1&\\
+&\texttt{Найти все}\rightarrow\,?x:f(x)\in\mathbb{P}\,\wedge\,g(x)\in\mathbb{P}
+\end{align}
+```
+
+</procedure>
+
+<procedure title="Решение" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{Распишем модули от тройки:}&\\
+&\begin{cases}
+2^x-1\equiv{r_1}\pmod{3}\\
+2^x+1\equiv{r_2}\pmod{3}\\
+\end{cases}&\\
+&\texttt{Из свойств делимости:}&\\
+&\begin{cases}
+(-1)^x-1\equiv{r_1}\pmod{3}\\
+(-1)^x+1\equiv{r_2}\pmod{3}\\
+\end{cases}\Rightarrow_\texttt{(одно из чисел кратно 3)}&\\
+&\Rightarrow\left[\,\begin{aligned}
+&\begin{cases}
+2^x-1=3\\
+2^x+1=5
+\end{cases}&\\
+&\begin{cases}
+2^x-1=1\\
+2^x+1=3
+\end{cases}&\\
+\end{aligned}\right .&\\
+&\Rightarrow x=2&\\
 \end{align}
 ```
 
