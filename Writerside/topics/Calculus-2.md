@@ -747,7 +747,7 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 &\texttt{let}\,a_n=\sqrt[n]{n}-1&\\
 &\Leftrightarrow 1+a_n=\sqrt[n]{n}&\\
 &\Rightarrow \left(1+a_n\right)^n=n&\\
-&n=\left(1+a_n\right)^n\gt \frac{n(n-1)}{2}\cdot a_n^2\ _\texttt{(по биному Ньютона)}&\\
+&n=\left(1+a_n\right)^n\gt \frac{n(n-1)}{2}\cdot a_n^2\ _\texttt{(по биному Ньютона 3-ий член)}&\\
 &\textbf{Зажимаем по милиционерам:}&\\
 &\texttt{Снизу ограничен:} a_n\gt0&\\
 &\texttt{Сверху предел:} \lim_{n\to\infty}\frac{2}{n-1}=0&\\
