@@ -476,7 +476,7 @@ flowchart LR
 
 ```tex
 \left|\bigcup_{i=1}^{n}A_i\right|=\sum^n_{i=1}\left|A_i\right|-\sum^n_{i\lt j}\left|A_{ij}\right|+\sum^n_{i\lt j\lt k}\left|A_{ijk}\right|-\ldots
-+\left(-1\right)^n\sum^n_{i\ldots}\left|A_{i\ldots}\right|
++\left(-1\right)^{n+1}\sum^n_{i\ldots}\left|A_{i\ldots}\right|
 ```
 
 </procedure>
@@ -539,7 +539,7 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
 
 </procedure>
 
-<procedure title="Доказательство" collapsible="true">
+<procedure title="Доказательство (для слабых)" collapsible="true">
 
 **`Частный случай с кругами Эйлера`**
 
@@ -556,6 +556,22 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
 \end{aligned}\right)
 ```
 
+</procedure>
+
+<procedure title="Доказательство (для сильных)" collapsible="true">
+
+**`Общий случай`**
+
+```tex 
+\begin{align}
+&\texttt{let}\,A_1, A_2, \ldots, A_n\,\texttt{— множества}&\\
+&|A_1\cup A_2\cup\ldots\cup A_n|=\overline{\overline{A_1}\cap\overline{A_2}\cap\ldots\cap\overline{A_n}}
+\ _\texttt{(по закону Моргана)}&\\
+&\texttt{Рассмотрим индикаторную функцию для всех элементов множества:}&\\
+&\Leftrightarrow\sum_{x\in\mathbb{U}}1-(1-I_{A_1}(x))(1-I_{A_2}(x))\ldots(1-I_{A_n}(x))&\\
+&=\sum_{x\in\mathbb{U}}(\sum_{i=1}I_{A_i}(x)-\sum_{i\lt j}I_{A_i}(x)I_{A_j}(x)+\ldots+(-1)^{n+1}\sum_{i\ldots}I_{A_i}(x))&\\
+\end{align}
+```
 </procedure>
 
 ## 2. Числовые функции
@@ -677,6 +693,36 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
 
 </procedure>
 </tab>
+
+<tab title="Неубывающая">
+
+<emphasis>Неубывающая функция</emphasis> — это функция, которая не убывает на всей области определения.
+
+<procedure>
+
+```tex
+\forall x_1, x_2 \in \mathbb{X}: x_1 \lt x_2 \implies f(x_1) \leqslant f(x_2)
+```
+
+<img src="calculus_increasing_function.png" alt="Неубывающая функция" width="400" align="right"/>
+
+</procedure>
+</tab>
+
+<tab title="Невозрастающая">
+
+<emphasis>Невозрастающая функция</emphasis> — аналогично неубывающей, но не возрастает на всей области определения.
+
+<procedure>
+
+```tex
+\forall x_1, x_2 \in \mathbb{X}: x_1 \lt x_2 \implies f(x_1) \geqslant f(x_2)
+```
+
+<img src="calculus_decreasing_function.png" alt="Невозрастающая функция" width="400" align="right"/>
+
+</procedure>
+</tab>
 </tabs>
 
 ### 2.4. Монотонность функции
@@ -723,9 +769,13 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
 
 Каждая из точек удовлетворяют следующему условию:
 
+<procedure>
+
 ```tex
 \left(x, y\right) \in \mathbb{X} \times \mathbb{Y} \Leftrightarrow  y = f(x)
 ```
+
+</procedure>
 
 > Важно понимать, что график функции — это не сама функция, а множество точек, которые ей удовлетворяют.
 >

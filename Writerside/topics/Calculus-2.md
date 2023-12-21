@@ -43,10 +43,22 @@
 <img src="calculus_sequence_limit.png" alt="Предел последовательности" width="400" align="right"/>
 
 <note>
-Начиная с некоторого номера, все точки (значения) попадают в эпсилон-окрестность точки `A`, где <code-block lang="tex">
-\varepsilon\texttt{-окрестность}=\left\{x:\left|x-A\right|\lt\varepsilon\right\}
-</code-block>
+Начиная с некоторого номера, все точки (значения) попадают в эпсилон-окрестность точки `A`.
 </note>
+
+### 5.3. Эпсилон-окрестность
+
+<emphasis>Эпсилон-окрестность</emphasis> — это симметричный интервал вокруг точки `A` с радиусом `ε`.
+
+<procedure>
+
+```tex
+\begin{align}
+&\varepsilon\texttt{-окрестность}=\left\{x:\left|x-A\right|\lt\varepsilon\right\}&
+\end{align}
+```
+
+</procedure>
 
 ## 6. Свойства сходящихся
 
