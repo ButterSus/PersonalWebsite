@@ -869,6 +869,6 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
 
 </procedure>
 
-### 5. Продолжение...
+## 5. Продолжение...
 
 Читайте дальше в [следующей части](Calculus-2.md).
