@@ -573,6 +573,10 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
 
 </tldr>
 
+<emphasis>Числовой функцией</emphasis> с областью определения `X` и областью значений `Y` называется
+зависимость, при которой каждому элементу `x` из `X` по правилу `f`
+ставится в соответствие единственное значение `y` из `Y`.
+
 ### 2.1. Определение функции
 
 <tabs>
@@ -603,7 +607,79 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
     </tab>
 </tabs>
 
-### 2.3. Монотонность функции
+### 2.3. Виды функций
+
+<tabs>
+<tab title="Чётная">
+
+<emphasis>Чётная функция</emphasis> — это функция, которая симметрична относительно оси ординат.
+
+<warning>
+Это так же означает, что область определения функции должна быть симметрична относительно оси ординат.
+
+**На сессии не забудьте про это сказать!**
+</warning>
+
+<procedure>
+
+```tex
+\forall x \in \mathbb{X}: f(-x)=f(x)
+```
+
+<img src="calculus_even_function.png" alt="Чётная функция" width="400" align="right"/>
+
+</procedure>
+</tab>
+
+<tab title="Нечётная">
+
+<emphasis>Нечётная функция</emphasis> — это функция, которая не является чётной.
+
+<procedure>
+
+```tex
+\forall x \in \mathbb{X}: f(-x)=-f(x)
+```
+
+<img src="calculus_odd_function.png" alt="Нечётная функция" width="400" align="right"/>
+
+</procedure>
+</tab>
+</tabs>
+
+<tabs>
+<tab title="Возрастающая">
+
+<emphasis>Возрастающая функция</emphasis> — это функция, которая строго возрастает на всей области определения.
+
+<procedure>
+
+```tex
+\forall x_1, x_2 \in \mathbb{X}: x_1 \lt x_2 \implies f(x_1) \lt f(x_2)
+```
+
+<img src="calculus_increasing_function.png" alt="Возрастающая функция" width="400" align="right"/>
+
+</procedure>
+</tab>
+
+<tab title="Убывающая">
+
+<emphasis>Убывающая функция</emphasis> — аналогично возрастающей, но строго убывает на всей области определения.
+
+<procedure>
+
+```tex
+\forall x_1, x_2 \in \mathbb{X}: x_1 \lt x_2 \implies f(x_1) \gt f(x_2)
+```
+
+<img src="calculus_decreasing_function.png" alt="Убывающая функция" width="400" align="right"/>
+
+</procedure>
+</tab>
+</tabs>
+
+### 2.4. Монотонность функции
 
 Функция называется <emphasis>монотонно возрастающей/убывающей</emphasis>,
 если она строго возрастает/убывает на всей области определения.
@@ -618,6 +694,19 @@ N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\
         <img src="calculus_not_monotonic_function.png" alt="Пример не монотонной функции" width="400" align="right"/>
     </tab>
 </tabs>
+
+С помощью монотонности мы можем сказать Пицыну: "Очева".
+
+Например, в показательных уравнениях, если обе части уравнения монотонны и одна
+строго возрастает, а другая строго убывает, то уравнение имеет единственное решение.
+
+<procedure>
+
+```tex
+\left(\frac{1}{3}\right)^x=3^x\ \Rightarrow\ x=0\ \texttt{- единственное решение}
+```
+
+</procedure>
 
 ## 3. Графики функций
 
