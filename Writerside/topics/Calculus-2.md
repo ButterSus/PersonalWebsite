@@ -526,6 +526,13 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 ```
 
 </procedure>
+
+<warning>
+
+Будьте очень осторожны, ведь не зря `B > 0` в первом пункте,
+иначе минимум будет работать неправильно!
+
+</warning>
 </tab>
 
 <tab title="Частное">
@@ -600,7 +607,161 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 
 </procedure>
 
-## 11. Число эйлера и его свойства
+## 11. Базовые пределы
+
+Их всего 5, но они очень важны.
+
+<tabs>
+<tab title="1-й предел">
+
+<tip>
+
+```tex
+\lim_{n\to\infty}\frac{1}{n}=0
+```
+
+</tip>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,\mathcal{A}=0:&\\
+&\Rightarrow \left|\frac{1}{n}-0\right|\lt\varepsilon,\forall{n}\gt{N(\varepsilon)}&\\
+&\Leftrightarrow \frac{1}{n}\lt\varepsilon\\
+&\Leftrightarrow n\gt\frac{1}{\varepsilon}\Rightarrow\exists\,{N(\varepsilon)}=\left[\frac{1}{\varepsilon}\right]+1&\\
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="2-й предел">
+
+<tip>
+
+```tex
+\lim_{n\to\infty}\sqrt[n]{1+a^n}=\left[\begin{aligned}
+&0\lt a\le 1&\rightarrow 1& \\
+&a\gt 1&\rightarrow a&
+\end{aligned}\right .
+```
+
+</tip>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&1)\,\texttt{let}\,0\lt{a}\le1:&\\
+&\textbf{Зажимаем по милиционерам:}&\\
+&\texttt{Снизу ограничен:} \sqrt[n]{1+a^n}\ge1+an\ge1\ _\texttt{(по неравенству Бернулли)}&\\
+&\texttt{Сверху предел:} \lim_{n\to\infty}1+a^n=1&\\
+&\texttt{т.к:} \lim_{n\to\infty}1+a^n\gt\lim_{n\to\infty}\sqrt[n]{1+a^n}\ge1&\\
+&\textbf{Получаем:} \lim_{n\to\infty}\sqrt[n]{1+a^n}=1&\\\\
+
+&2)\,\texttt{let}\,a=1:&\\
+&\lim_{n\to\infty}\sqrt[n]{1+1^n}=\lim_{n\to\infty}\sqrt[n]{2}=1&\\\\
+
+&3)\,\texttt{let}\,a\gt1:&\\
+&\lim_{n\to\infty}\sqrt[n]{1+a^n}=\lim_{n\to\infty}\sqrt[n]{a^n(1+\frac{1}{a^n})}&\\
+&=\lim_{n\to\infty}a\sqrt[n]{1+\frac{1}{a^n}}=a\cdot1=a&\\
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="3-й предел">
+<tip>
+
+```tex
+\lim_{n\to\infty}\sqrt[n]{a}=1;\ a\gt0
+```
+
+</tip>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&1)\,\texttt{let}\,a=1:&\\
+&\lim_{n\to\infty}\sqrt[n]{1}=1&\\\\
+&2)\,\texttt{let}\,a\gt1:&\\
+&a=(\sqrt[n]{a})^n\gt\sqrt[n]{a}=(1+\sqrt[n]{a}-1)^n\ge1+n(\sqrt[n]{a}-1)&\\
+&\gt n(\sqrt[n]{a}-1)\Rightarrow 1+\frac{a}{n}\gt\sqrt[n]{a}\gt1&\\
+&\textbf{Зажимаем по милиционерам:}&\\
+&\texttt{Снизу ограничен:} \sqrt[n]{a}\ge1, \forall{n}\gt1&\\
+&\texttt{Сверху предел:} \lim_{n\to\infty}1+\frac{a}{n}=1&\\
+&\texttt{т.к:} \lim_{n\to\infty}1+\frac{a}{n}\gt\lim_{n\to\infty}\sqrt[n]{a}\ge1&\\
+&\textbf{Получаем:} \lim_{n\to\infty}\sqrt[n]{a}=1&\\\\
+&3)\,\texttt{let}\,0\lt{a}\lt1:&\\
+&\lim_{n\to\infty}\sqrt[n]{a}=\frac{1}{\lim_{n\to\infty}\sqrt[n]{\frac{1}{a}}}
+\ _\texttt{(для пункта 2 переворачиваем дробь)}&\\
+&=\frac{1}{1}=1&\\
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="4-й предел">
+<tip>
+
+```tex
+\lim_{n\to\infty}q^n=0,\ \left|q\right|\lt1
+```
+
+</tip>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&1)\,\texttt{let}\,q=0:&\\
+&\lim_{n\to\infty}0^n=0&\\\\
+&2)\,\texttt{let}\,0\lt\left|q\right|\lt1:&\\
+&\frac{1}{|q|}=(1+\alpha)^n\ge 1+n\alpha\gt n\alpha\ _\texttt{(по неравенству Бернулли)}&\\
+&\forall\,\varepsilon\gt0:\exists{N}\in\mathbb{N}:\left|q^n\right|\lt\frac{1}
+{n\alpha}\lt\varepsilon,\forall{n}\gt{N}&\\
+&\Rightarrow \underline{N(\varepsilon)=\left[\frac{1}{\alpha\varepsilon}\right]+1}&\\
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="5-й предел">
+<tip>
+
+```tex
+\lim_{n\to\infty}\sqrt[n]{n}=1
+```
+
+</tip>
+
+<procedure title="Доказательство" collapsible="true">
+
+```tex
+\begin{align}
+&\texttt{let}\,a_n=\sqrt[n]{n}-1&\\
+&\Leftrightarrow 1+a_n=\sqrt[n]{n}&\\
+&\Rightarrow \left(1+a_n\right)^n=n&\\
+&n=\left(1+a_n\right)^n\gt \frac{n(n-1)}{2}\cdot a_n^2\ _\texttt{(по биному Ньютона)}&\\
+&\textbf{Зажимаем по милиционерам:}&\\
+&\texttt{Снизу ограничен:} a_n\gt0&\\
+&\texttt{Сверху предел:} \lim_{n\to\infty}\frac{2}{n-1}=0&\\
+&\texttt{т.к:} \lim_{n\to\infty}\frac{2}{n-1}\gt\lim_{n\to\infty}a_n\ge0&\\
+&\textbf{Получаем:} \lim_{n\to\infty}a_n=\lim_{n\to\infty}\sqrt[n]{n}-1=0&\\
+&\Rightarrow \underline{\lim_{n\to\infty}\sqrt[n]{n}=1}&\\
+\end{align}
+```
+
+</procedure>
+</tab>
+</tabs>
+
+## 12. Число эйлера и его свойства
 
 Само число Эйлера обозначается как `e`.
 
