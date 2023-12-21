@@ -495,7 +495,7 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 </procedure>
 </tab>
 
-<tab title="Частное">
+<tab title="Обратное">
 <tip>
 
 ```tex
@@ -507,7 +507,44 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 <procedure title="Доказательство">
 
 ```tex
-1
+\begin{align}
+&1)\,\texttt{let}B>0:\,\texttt{let}\,\varepsilon_1=\frac{\mathcal{B}}{2}&\\
+&\Rightarrow\left|b_n-\mathcal{B}\right|\lt\frac{\mathcal{B}}{2},\forall{n}\gt{N_1(\varepsilon_1)}&\\
+&\Leftrightarrow\frac{\mathcal{B}}{2}\lt{b_n}\lt\frac{3\mathcal{B}}{2}&\\
+&\texttt{let}\,m=\min\left(b_1,b_2,\ldots,b_{N_1(\varepsilon_1)},\frac{\mathcal{B}}{2}\right)&\\
+&\Rightarrow\forall{n}\in\mathbb{N}:\left|b_n\right|\ge{m}\gt0&\\
+&\texttt{let}\,\varepsilon_2=\varepsilon m\mathcal{B}&\\
+&\Rightarrow\left|b_n-\mathcal{B}\right|\lt\varepsilon_2,\forall{n}\gt{N_2(\varepsilon_2)}&\\
+&\left|\frac{1}{b_n}-\frac{1}{\mathcal{B}}\right|=\left|\frac{\mathcal{B}-b_n}{b_n\mathcal{B}}\right|&\\
+&=\frac{\left|b_n-\mathcal{B}\right|}{\mathcal{B}\cdot\left|b_n\right|}\lt\frac{\varepsilon_2}{\mathcal{B}\cdot{m}}
+=\frac{\varepsilon\cdot{m}\cdot\mathcal{B}}{\mathcal{B}\cdot{m}}=\varepsilon_\texttt{(как определение предела)}&\\
+&\Rightarrow\lim_{n\to\infty}\frac{1}{b_n}=\frac{1}{\mathcal{B}}&\\\\
+&2)\,\texttt{let}\,B\lt0:\,\Rightarrow\lim_{n\to\infty}\frac{1}{-b_n}=\frac{1}{-\mathcal{B}}
+\ _\texttt{(по пункту 1)}&\\
+&\Rightarrow\lim_{n\to\infty}\frac{1}{b_n}=\frac{1}{\mathcal{B}}&\\
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="Частное">
+<tip>
+
+```tex
+\lim_{n\to\infty}\frac{a_n}{b_n}=\frac{\mathcal{A}}{\mathcal{B}}
+```
+
+</tip>
+
+<procedure title="Доказательство">
+
+```tex
+\begin{align}
+&\lim_{n\to\infty}\frac{a_n}{b_n}=\lim_{n\to\infty}a_n\times\frac{1}{b_n}
+=\mathcal{A}\times\frac{1}{\mathcal{B}}=\frac{\mathcal{A}}{\mathcal{B}}&\\
+&_\texttt{(тут мы пользуемся пределами последовательностей, которые мы уже доказали)}&
+\end{align}
 ```
 
 </procedure>
@@ -570,7 +607,7 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 
 ```tex
 \begin{align}
-&\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n\overset{?}\lt{3}&\\
+&\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n\overset{?}\lt{3}\ _\texttt{(по биному Ньютона)}&\\
 &\Leftrightarrow \sum_{k=1}C_n^k\cdot\frac{1}{n^k}=1+\underset{=1}{\underline{n\cdot\frac{1}{n}}}+\sum_{k=2}C_n^k\cdot\frac{1}{n^k}&\\
 &=2+\sum_{k=2}\frac{n!}{k!\cdot(n-k)!}\cdot\frac{1}{n^k}&\\
 &=2+\sum_{k=2}\frac{(n-k+1)\cdot(n-k+2)\cdot\ldots\cdot{n}}{k!}\cdot\frac{1}{n^k}&\\
