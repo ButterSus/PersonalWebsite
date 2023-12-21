@@ -499,7 +499,7 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 <tip>
 
 ```tex
-\lim_{n\to\infty}\frac{1}{b_n}=\frac{1}{\mathcal{B}}
+\lim_{n\to\infty}\frac{1}{b_n}=\frac{1}{\mathcal{B}};\ b_n, \mathcal{B}\neq0
 ```
 
 </tip>
@@ -532,7 +532,7 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 <tip>
 
 ```tex
-\lim_{n\to\infty}\frac{a_n}{b_n}=\frac{\mathcal{A}}{\mathcal{B}}
+\lim_{n\to\infty}\frac{a_n}{b_n}=\frac{\mathcal{A}}{\mathcal{B}};\ b_n, \mathcal{B}\neq0
 ```
 
 </tip>
@@ -544,6 +544,34 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 &\lim_{n\to\infty}\frac{a_n}{b_n}=\lim_{n\to\infty}a_n\times\frac{1}{b_n}
 =\mathcal{A}\times\frac{1}{\mathcal{B}}=\frac{\mathcal{A}}{\mathcal{B}}&\\
 &_\texttt{(тут мы пользуемся пределами последовательностей, которые мы уже доказали)}&
+\end{align}
+```
+
+</procedure>
+</tab>
+
+<tab title="Корень">
+<tip>
+
+```tex
+\lim_{n\to\infty}\sqrt{a_n}=\sqrt{\mathcal{A}};\ a_n, \mathcal{A}\geq0
+```
+
+</tip>
+
+<procedure title="Доказательство">
+
+```tex
+\begin{align}
+&1)\,\texttt{let}\,\mathcal{A}=0:\texttt{let}\,\varepsilon_0=\varepsilon^2&\\
+&\Rightarrow\left|a_n-\mathcal{A}\right|\lt\varepsilon^2,\forall{n}\gt{N(\varepsilon^2)}&\\
+&\Leftrightarrow a_n \lt\varepsilon^2\Rightarrow\sqrt{a_n}\lt\varepsilon&\\
+&\Rightarrow\underline{\left|\sqrt{a_n}-0\right|\lt\varepsilon}\Rightarrow\lim_{n\to\infty}\sqrt{a_n}=0&\\\\
+&2)\,\texttt{let}\,\mathcal{A}\gt0:\texttt{let}\,\varepsilon_0=\varepsilon\sqrt{\mathcal{A}}&\\
+&\left|\sqrt{a_n}-\sqrt{\mathcal{A}}\right|=\frac{\left|a_n-\mathcal{A}\right|}{\sqrt{a_n}+\sqrt{\mathcal{A}}}&\\
+&\lt\frac{\left|a_n-\mathcal{A}\right|}{\sqrt{\mathcal{A}}}\lt\frac{\varepsilon_0}{\sqrt{\mathcal{A}}}
+=\frac{\varepsilon\sqrt{\mathcal{A}}}{\sqrt{\mathcal{A}}}=\varepsilon_\texttt{(как определение предела)}&\\
+&\Rightarrow\lim_{n\to\infty}\sqrt{a_n}=\sqrt{\mathcal{A}}&\\
 \end{align}
 ```
 
