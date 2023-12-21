@@ -721,7 +721,7 @@ a_n-\mathcal{B}\right|\lt\underline{\varepsilon}&\texttt{(по определе�
 &1)\,\texttt{let}\,q=0:&\\
 &\lim_{n\to\infty}0^n=0&\\\\
 &2)\,\texttt{let}\,0\lt\left|q\right|\lt1:&\\
-&\frac{1}{|q|}=(1+\alpha)^n\ge 1+n\alpha\gt n\alpha\ _\texttt{(по неравенству Бернулли)}&\\
+&\frac{1}{|q^n|}=(1+\alpha)^n\ge 1+n\alpha\gt n\alpha\ _\texttt{(по неравенству Бернулли)}&\\
 &\forall\,\varepsilon\gt0:\exists{N}\in\mathbb{N}:\left|q^n\right|\lt\frac{1}
 {n\alpha}\lt\varepsilon,\forall{n}\gt{N}&\\
 &\Rightarrow \underline{N(\varepsilon)=\left[\frac{1}{\alpha\varepsilon}\right]+1}&\\
