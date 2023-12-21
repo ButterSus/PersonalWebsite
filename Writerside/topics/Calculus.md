@@ -178,7 +178,26 @@ graph LR
 <procedure>
 
 ```tex
+\mathbb{U}\supseteq\mathbb{A}, \forall\mathbb{A}_\texttt{(универсальное множество содержит все множества)}
+```
 
+</procedure>
+
+
+<tip>
+
+Таким образом, универсальное множество мы например можем использовать следующим образом:
+
+```tex
+\begin{align}
+&\mathbb{A}=\{1, 2, 3, 4, 5\}& \\
+&\mathbb{B}=\{2, 4, 6, 8, 10\}& \\
+&\mathbb{A}\setminus\mathbb{B}=\mathbb{A}\cup\overline{\mathbb{B}}
+=\mathbb{A}\cup\left(\mathbb{U}\setminus\mathbb{B}\right)=\{1, 3, 5\}&
+\end{align}
+```
+
+</tip>
 
 ### 1.4.1. Операции над множествами
 
@@ -251,6 +270,12 @@ A \subseteq B \Leftrightarrow \forall x \in A \Rightarrow x \in B \Leftrightarro
 
 ```tex
 \mathbb{N} \subseteq \mathbb{Z}
+```
+
+А универсальное множество является подмножеством любого множества.
+
+```tex
+\mathbb{U} \subseteq \mathbb{A},\forall \mathbb{A}
 ```
 </note>
 
@@ -418,14 +443,15 @@ flowchart LR
 &N(a_1)\in\mathbb{R} - \texttt{величина, удовлетворяющая свойству 1}&\\
 &N(a_1a_2)\in\mathbb{R} - \texttt{величина, удовлетворяющая свойству 1 и 2}&\\
 &N(\overline{a_1a_2})\in\mathbb{R} - \texttt{величина, не удовлетворяющая одному из свойств 1 и 2}&\\
+&N(a_1+a_2)\in\mathbb{R} - \texttt{величина, удовлетворяющая свойству 1 или 2}&\\
 \end{align}
 ```
 
 </procedure>
 
 Как могли заметить, принято:
-- **свойства** - строчными буквами
-- **множества** - заглавными буквами
+- **свойства** - строчными буквами, вычисления в основном с величинами
+- **множества** - заглавными буквами, вычисления в основном с элементами
 
 <tip>
 
@@ -435,6 +461,10 @@ flowchart LR
 Это просто удобнее и логичнее.
 
 </tip>
+
+[boolean-algebra]: https://ru.wikipedia.org/wiki/%D0%91%D1%83%D0%BB%D0%B5%D0%B2%D0%B0_%D0%B0%D0%BB%D0%B3%D0%B5%D0%B1%D1%80%D0%B0
+
+Подробнее про булеву алгебру со свойствами можно почитать в [этой статье][boolean-algebra]{ignore-vars="true"}.
 
 
 ### 1.8.1 Основная формула включений и исключений
@@ -456,27 +486,74 @@ flowchart LR
 <procedure>
 
 ```tex
-N(\overline{a}_1 \ldots \overline{a}_n) =
-N - \sum_{i} N(a_i) + \sum_{i< j} N(a_i a_j) - 
-\sum_{i< j<k} N(a_i a_j a_k) + \ldots + (-1)^n N(a_1 \ldots a_n).
+N(a_1+a_2\ldots+a_n)=\sum^n_{i=1}N(a_i)-\sum^n_{i\lt j}N(a_ia_j)+\sum^n_{i\lt j\lt k}N(a_ia_ja_k)-\ldots
+```
+
+</procedure>
+
+Вот примеры задач которые можно решить с помощью этой формулы:
+
+<procedure>
+
+Найти количество чисел от 1 до 1000, которые делятся на 2, 3 или 5.
+
+```tex
+\begin{align}
+&\begin{aligned}
+&\texttt{let}\,A_1=\{2, 4, 6, \ldots, 1000\}&\Rightarrow\left|A_1\right|=\frac{1000}{2}=500&\\
+&\texttt{let}\,A_2=\{3, 6, 9, \ldots, 999\}&\Rightarrow\left|A_2\right|=\frac{999}{3}=333&\\
+&\texttt{let}\,A_3=\{5, 10, 15, \ldots, 1000\}&\Rightarrow\left|A_3\right|=\frac{1000}{5}=200&\\
+\end{aligned}&\\
+&\left[\begin{aligned}
+&\begin{array}{ll}
+\left|A_1\cap A_2\right|=\frac{1000}{6}=166\\
+\left|A_1\cap A_3\right|=\frac{1000}{10}=100
+\end{array}\ \ \ 
+\begin{array}{ll}
+\left|A_2\cap A_3\right|=\frac{1000}{15}=66\\
+\left|A_1\cap A_2\cap A_3\right|=\frac{1000}{30}=33
+\end{array}&
+\end{aligned}\right]&\\
+&\left|A_1\cup A_2\cup A_3\right|=\left(\begin{aligned}
+&+\left|A_1\right|+\left|A_2\right|+\left|A_3\right|&\\
+&-\left|A_1\cap A_2\right|-\left|A_1\cap A_3\right|-\left|A_2\cap A_3\right|&\\
+&+\left|A_1\cap A_2\cap A_3\right|&
+\end{aligned}\right)&\\
+&\Rightarrow\left|A_1\cup A_2\cup A_3\right|=500+333+200-166-100-66+33=734&
+\end{align}
+```
+
+</procedure>
+
+<procedure>
+
+Найти количество чисел от 1 до 1000, которые не делятся на ни на 2, ни на 3, ни на 5.
+
+```tex
+\begin{align}
+&\texttt{Тут всё решается аналогично предыдущему}&\\
+&\left|A_1\cup A_2\cup A_3\right|=\ldots=734&\\
+&\Rightarrow \left|{\overline{A_1}\cap \overline{A_2}\cap \overline{A_3}}\right|=1000-734=266&
+\end{align}
 ```
 
 </procedure>
 
 <procedure title="Доказательство" collapsible="true">
 
-_(Доказывается через математическую индукцию.)_
+**`Частный случай с кругами Эйлера`**
+
+<img src="calculus_euler_circles.png" alt="Круги Эйлера" width="400" align="right"/>
+
+В данном случае мы можем воспользоваться кругами Эйлера, чтобы наглядно понять и выразить
+формулу включений и исключений.
 
 ```tex
-\begin{align}
-&\texttt{let}\,x\in\bigcup_{i=1}^{n}A_i& \\
-&\Rightarrow\exists{i}\in\{1, 2, \ldots, n\}:x\in{A_i}& \\
-&\Rightarrow\sum^n_{i=1}\left|A_i\right|& \\
-&\texttt{let}\,x\in\bigcap_{i=1}^{n}A_i& \\
-&\Rightarrow\forall{i}\in\{1, 2, \ldots, n\}:x\in{A_i}& \\
-&\Rightarrow\sum^n_{i=1}\left|A_i\right|-\sum^n_{i\lt j}\left|A_{ij}\right|+\sum^n_{i\lt j\lt k}\left|A_{ijk}\right|-\ldots
-+\left(-1\right)^n\sum^n_{i\ldots}\left|A_{i\ldots}\right|&
-\end{align}
+\left|A_1\cup A_2\cup A_3\right|=\left(\begin{aligned}
+&+\left|A_1\right|+\left|A_2\right|+\left|A_3\right|&\\
+&-\left|A_1\cap A_2\right|-\left|A_1\cap A_3\right|-\left|A_2\cap A_3\right|&\\
+&+\left|A_1\cap A_2\cap A_3\right|&
+\end{aligned}\right)
 ```
 
 </procedure>
