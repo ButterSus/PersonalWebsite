@@ -9,6 +9,7 @@
         <toc-element topic="Algebra.md">
             <toc-element topic="Pitsyn-Tasks.md"/>
         </toc-element>
-        <toc-element topic="Calculus.md"/>
+        <toc-element topic="Calculus-1.md"/>
+        <toc-element topic="Calculus-2.md"/>
     </toc-element>
 </instance-profile>
