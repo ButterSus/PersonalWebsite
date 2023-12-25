@@ -1023,10 +1023,10 @@ v = \frac{2\pi r}{T}
 &\texttt{Единица измерения:}&\\
 &\texttt{Ватт (Вт)} = \frac{\texttt{Дж}}{\texttt{с}}&\\\\
 &\texttt{Постоянная сила:}&\\
-&\overline{N} = \frac{F\cdot \Delta x}{t} = F\cdot v&\\\\
+&\overline{N} = \frac{F\cdot \Delta x}{t} = F\cdot \overline{v}&\\\\
 &\texttt{Переменная сила:}&\\
 &\overline{N} = \frac{\int_0^t F(t)\cdot (v\cdot dt)}{t} = \frac{A}{t}&\\
-&N(t) = \frac{dA}{dt} = F\frac{dr}{dt}=F_\tau v(t)\ -\ \texttt{мгновенная мощность}&
+&N(t) = \frac{dA}{dt} = F\frac{dr}{dt}=F_\tau v(t) = \vec{F}\vec{v}\ -\ \texttt{мгновенная мощность}&
 \end{align}
 ```
 
@@ -1097,7 +1097,6 @@ v = \frac{2\pi r}{T}
 - Если **работа внешних сил положительна**, то кинетическая энергия **возрастает**.
 - Если **работа внешних сил отрицательна**, то кинетическая энергия **убывает**.
 
-## Билет 20.
+## 20. Продолжение...
 
-### 20.1. Консервативные силы
-
+Читайте дальше в [следующей части](Physics-3.md).
