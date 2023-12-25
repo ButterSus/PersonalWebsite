@@ -845,28 +845,188 @@ v = \frac{2\pi r}{T}
 
 ### 17.2. Уравнение Мещерского
 
-<warning>
-
-Я пошёл спать, успел дописать только 16 билетов. Удачи!
-
-</warning>
-
 <emphasis>Уравнение Мещерского</emphasis> - гласит о следующем:
+
+<procedure>
 
 ```tex
 \begin{align}
-&m\frac{d\vec{v}}{dt} = \sum\vec{F}_\texttt{внеш} + \vec{F}_{\texttt{реакт}}&\\
+&m\frac{d\vec{v}}{dt} = \sum\vec{F}_\texttt{внеш} + \vec{F}_{\texttt{реакт}}&
 \end{align} 
 ```
 
+</procedure>
+
 <procedure title="Вывод">
 
-<img src="уравнение_мещерского_1.png" height="250" alt="Уравнение Мещерского"/>
+<img src="мещерский_уравнение_1.png" height="180" alt="Уравнение Мещерского"/>
 
 ```tex
 \begin{align}
-&d\vec{p}_\texttt{сист} = \sum\vec{F}_\texttt{внеш}\cdot dt&\\
-&\vec{p}_\texttt{сист} = (m + dm_\texttt{отд})\vec{v} - dm_\texttt{пр}\vec{v}_\texttt{пр}&\\
+&\textbf{В начальный момент времени:}&\\
+&\Rightarrow\vec{p}_\texttt{сист} = (m + dm_\texttt{отд})\vec{v} + dm_\texttt{пр}\vec{v}_\texttt{пр}&
+\end{align}
+```
+
+<img src="мещерский_уравнение_2.png" height="250" alt="Уравнение Мещерского"/>
+
+```tex
+\begin{align}
+&\textbf{После некоторого промежутка времени:}&\\
+&\Rightarrow \vec{p}_\texttt{сист}+d\vec{p}_\texttt{сист} =
+(m + dm_\texttt{пр})(\vec{v} + d\vec{v}) + dm_\texttt{отд}\vec{v}_\texttt{отд}&\\\\
+&\textbf{Вычитаем оба уравнения:}&\\
+&\Rightarrow d\vec{p}_\texttt{сист} = md\vec{v} - dm_\texttt{отд}
+(\vec{v} - \vec{v}_\texttt{отд}) + dm_\texttt{пр}(\vec{v} - \vec{v}_\texttt{пр})
++ \overset{\rightarrow0\,_\texttt{т.к. две буквы}\,d}{\overline{(dm_\texttt{пр}d\vec{v})}}&\\
+&\Rightarrow d\vec{p}_\texttt{сист} = md\vec{v} + dm_\texttt{пр}(\vec{v} 
+- \vec{v}_\texttt{пр}) - dm_\texttt{отд}(\vec{v} - \vec{v}_\texttt{отд})&\\\\
+&\textbf{Подставляем в уравнение системы:}&\\
+&\vec{v}_\texttt{отд} = \vec{v} + \vec{u}_\texttt{отд}&\\
+&\vec{v}_\texttt{пр} = \vec{v} + \vec{u}_\texttt{пр}&\\
+&\textbf{По второму закону Ньютона:}&\\
+&d\vec{p}_\texttt{сист} = \sum\vec{F}_\texttt{внеш}\cdot dt&\\\\
+&\Rightarrow d\vec{p}_\texttt{сист} = md\vec{v} + dm_\texttt{отд}\vec{u}_\texttt{отд}
+- dm_\texttt{пр}\vec{u}_\texttt{пр} = \sum\vec{F}_\texttt{внеш}\cdot dt\ |\ \cdot\frac{1}{dt}&\\
+&\Rightarrow \underline{m\frac{d\vec{v}}{dt} = \sum\vec{F}_\texttt{внеш}
+- \frac{dm_\texttt{отд}}{dt}\vec{u}_\texttt{отд} + \frac{dm_\texttt{пр}}{dt}\vec{u}_\texttt{пр}}&
+\end{align}
+```
+
+</procedure>
+
+### 17.3. Реактивная сила
+
+<emphasis>Реактивная сила</emphasis> - это сила, возникающая при реактивном движении.
+
+<procedure>
+
+```tex
+\begin{align}
+&\textbf{Из уравнения Мещерского:}&\\
+&\vec{F}_{\texttt{реакт}} = \frac{dm_\texttt{пр}}{dt}\vec{u}_\texttt{пр}
+- \frac{dm_\texttt{отд}}{dt}\vec{u}_\texttt{отд} = \mu_\texttt{пр}\vec{u}_\texttt{пр}
+- \mu_\texttt{отд}\vec{u}_\texttt{отд}&\\
+\end{align}
+```
+
+</procedure>
+
+## Билет 18.
+
+### 18.1. Механическая работа
+
+<emphasis>Механическая работа</emphasis> - это скалярная величина, равная
+произведению векторов силы и перемещения тела.
+
+Для работы есть своя единица измерения - джоуль.
+
+<procedure>
+
+<img src="определение_работы.png" height="200" alt="Определение работы"/>
+
+```tex
+\begin{align}
+&A = \vec{F}\cdot\vec{S}&\\
+&\texttt{где:}&\\
+&A - \texttt{механическая работа}&\\
+&\vec{F} - \texttt{сила}&\\
+&\vec{S} - \texttt{перемещение}&\\\\
+&\texttt{Единица измерения:}&\\
+&\texttt{Джоуль (Дж)} = \texttt{Н}\cdot\texttt{м}&\\\\
+&\texttt{В случае одномерного движения}&\\
+&A = F\cdot S&\\\\
+&\texttt{Работа равнодействующей силы:}&\\
+&A = \sum_{i=1}^n A_i&
+\end{align}
+```
+
+</procedure>
+
+<note>
+
+**Работа может быть как положительной, так и отрицательной.**
+
+У работы много формулировок, так как она тесно связана с энергией.
+К работе так же относят например силу тяжести, силу трения, силу упругости и т.д.
+
+</note>
+
+### 18.2. Относительность работы
+
+<emphasis>Относительность работы</emphasis> - это тот факт, что работа приложенной силы
+имеют одинаковую величину для всех инерциальных систем отсчёта.
+
+Это есть [одно из следствий относительности Галилея](Physics-1.md#5-3).
+
+### 18.3. Работа постоянной и переменной силы
+
+<procedure>
+
+```tex
+\begin{align}
+&\textbf{Постоянная сила:}&\\
+&A = F\cdot \Delta x&\\\\
+&\textbf{Переменная сила:}&\\
+&A = \int_0^t F(t)\cdot (v\cdot dt)&
+\end{align} 
+```
+
+</procedure>
+
+### 18.4. Графический способ вычисления работы
+
+Как пример можно привести **работу силы упругости**.
+Рассмотрим график зависимости силы упругости от перемещения тела.
+
+<procedure>
+
+<img src="работа_силы_упругости.png" width="300" alt="Работа силы упругости"/>
+
+```tex
+\begin{align}
+&A = \int_0^t -kx\cdot(v_x\cdot dt) = \int_{x_0}^x -kx\cdot dx = \frac{1}{2}k\Delta x^2&
+\end{align}
+```
+
+</procedure>
+
+### 18.5. Аддитивность работы
+
+<emphasis>Аддитивность работы</emphasis> - это тот факт, что работа равнодействующей силы
+равна сумме работ всех сил, действующих на тело.
+
+<procedure>
+
+```tex
+\begin{align}
+&A = A_1 + A_2 + \dots + A_n = \sum_{i=1}^n A_i&
+\end{align}
+```
+
+</procedure>
+
+### 18.6. Мощность постоянной и переменной силы
+
+<emphasis>Мощность</emphasis> - это физическая величина, которая показывает
+скорость выполнения работы и равна отношению работы к времени.
+
+<procedure>
+
+```tex
+\begin{align}
+&N = \frac{A}{t}&\\
+&\texttt{где:}&\\
+&P - \texttt{мощность}&\\
+&A - \texttt{работа}&\\
+&t - \texttt{время}&\\\\
+&\texttt{Единица измерения:}&\\
+&\texttt{Ватт (Вт)} = \frac{\texttt{Дж}}{\texttt{с}}&\\\\
+&\texttt{Постоянная сила:}&\\
+&\overline{N} = \frac{F\cdot \Delta x}{t} = F\cdot v&\\\\
+&\texttt{Переменная сила:}&\\
+&\overline{N} = \frac{\int_0^t F(t)\cdot (v\cdot dt)}{t} = \frac{A}{t}&\\
+&N(t) = \frac{dA}{dt} = F\frac{dr}{dt}=F_\tau v(t)\ -\ \texttt{мгновенная мощность}&
 \end{align}
 ```
 
