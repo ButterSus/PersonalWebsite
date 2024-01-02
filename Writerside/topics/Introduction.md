@@ -407,6 +407,61 @@ preserving its semantics and thereby **implements S in T**.
 
 <procedure>
 
-Good compilers should also 
+Good compilers should also meet the following criteria:
+
+- **Correctness**: The compiler should not change the meaning of the program. 
+_(Like any performed optimizations should not change behavior of the program.)_
+- **Efficiency**: The compiler should produce code that is as efficient as possible,
+meaning that it mostly should use less time and memory.
+- **Low compilation time**: Not necessarily, but it's better to have a fast compiler.
+For example, it's very important to have <shortcut>linear time</shortcut> complexity.
+- **Compatibility**: The compiler should be compatible with the other compilers
+and tools, which are used by users _(like IDEs, debuggers, etc.)_.
+- **Integration**: Good compiler will provide a good support for developers:
+_nice error messages, debugging tools, etc._
+
+</procedure>
+
+## Structure of compilers
+
+It's nice to have a clear structure of compilers,
+which will help us to understand how they work.
+
+<procedure>
+
+<img src="compilers-compiler-structure.png" width="600" alt="Compiler structure"/>
+
+<tabs>
+<tab title="Frontend">
+
+**Frontend** is responsible for the **analysis** of the source code.
+
+It includes:
+- **Lexical analysis (Lexing)**: It's a process of converting a sequence of characters
+into a sequence of tokens.
+- **Syntax analysis (Parsing)**: It's a process of analyzing the syntax of a program
+and building an abstract syntax tree.
+- **Semantic analysis (Analysis)**: It's a process of analyzing the semantics of a program
+and building a symbol table.
+
+Each of these steps is [**usually independent of each other**](Context-Free-Grammars.md#what-is-a-context-free-grammar),
+and error can be reported immediately after it's detected.
+
+It's called <emphasis>front-end</emphasis>, because it's the **only part of the compiler,
+which affects syntax and semantics** of the program.
+
+<note>
+
+Note, that **frontend doesn't perform any optimizations**.
+
+</note>
+</tab>
+<tab title="Middle-end">
+
+**Middle-end (Transformations)** is relatively new part of the compiler,
+which is responsible for the **
+
+</tab>
+</tabs>
 
 </procedure>
