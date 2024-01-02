@@ -1,5 +1,12 @@
 # Introduction
 
+In this topic, we will discover what is a compiler,
+how it works, and what are the types of compilers.
+
+**Don't skip this topic**, because it's very important
+to understand the basics of compilers, before
+learning about more advanced topics.
+
 ## What is a compiler?
 
 <emphasis>Compiler</emphasis> is a computer program that
@@ -143,7 +150,7 @@ for cross-platform support.
 <img src="compilers-virtual-machine-diagram.png" width="480" alt="Virtual machine diagram"/>
 
 <tabs>
-<include from="Introduction.md" element-id="source-string-tab"/>
+<include from="Compilers-Introduction.md" element-id="source-string-tab"/>
 <tab title="Bytecode">
 
 It's a sequence of intermediate instructions,
@@ -225,7 +232,7 @@ and can interact with runtime environment.
 <img src="compilers-standard-compiler-diagram.png" width="600" alt="Standard compiler diagram"/>
 
 <tabs>
-<include from="Introduction.md" element-id="source-string-tab"/>
+<include from="Compilers-Introduction.md" element-id="source-string-tab"/>
 <tab title="Target Program">
 
 It's a sequence of machine instructions,
@@ -320,6 +327,61 @@ some repetitive patterns in the code, which usually
 is not possible for standard compilers.
 
 </tip>
+
+### 5. ButterSus's metalanguage compilers
+
+<tip>
+
+Since this is my site, I just want to present my idea.
+
+</tip>
+
+I have an idea of a compiler, which will be able to
+**change language itself**. It's called
+<emphasis>metaprogramming language</emphasis>.
+
+<procedure>
+
+Nowadays, there are a lot of languages, which partially
+support metaprogramming, like C++ with its templates,
+and `constexpr` functions, or Rust with its macros.
+
+</procedure>
+
+But I want to create a language, which will be able to
+fully support **changing syntax and semantics, compile-time
+custom code generation, etc.**
+
+Therefore, as it's main purpose is to create some
+domain-specific languages very easily, it should
+also support **easy IDE integration**.
+
+<procedure>
+
+To do so, compiler should be able to **work as
+language server using compile-time concept**:
+[dynamic syntax highlighting, code completion, code navigation,
+refactoring, warnings and errors (static analysis)](
+https://nadeeshaangunasinghe.medium.com/why-use-language-server-aa9bb47207b8)
+
+</procedure>
+
+Frontend can be overriden by the user using some
+kind of [Backus-Naur form](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form){ignore-vars="true"}.
+I'm not sure, but there should be **strict rules, defined by
+OOP principles**, in order to structure AST correctly.
+
+All backend stuff should be **implemented
+in a language itself**. It means all logic, that generates
+and optimizes code, should be written in a language itself.
+It will allow to **easily extend/override the language**.
+
+<note>
+
+If you are interested in this idea, [you can contact me,
+I'm always open for collaboration](Home.md#contact-me) since I'm a student.
+
+</note>
 
 ## Compilation process
 
@@ -429,6 +491,12 @@ which will help us to understand how they work.
 
 <procedure>
 
+Of course, **not all of these steps are required**,
+each one can be implemented in a different way.
+
+It's worth to mention, that **each step
+can raise an error**.
+
 <img src="compilers-compiler-structure.png" width="600" alt="Compiler structure"/>
 
 <tabs>
@@ -444,8 +512,8 @@ and building an abstract syntax tree.
 - **Semantic analysis (Analysis)**: It's a process of analyzing the semantics of a program
 and building a symbol table.
 
-Each of these steps is [**usually independent of each other**](Context-Free-Grammars.md#what-is-a-context-free-grammar),
-and error can be reported immediately after it's detected.
+Each of these steps is 
+[**usually independent of each other**](Context-Free-Grammars.md#what-is-a-context-free-grammar).
 
 It's called <emphasis>front-end</emphasis>, because it's the **only part of the compiler,
 which affects syntax and semantics** of the program.
@@ -459,7 +527,45 @@ Note, that **frontend doesn't perform any optimizations**.
 <tab title="Middle-end">
 
 **Middle-end (Transformations)** is relatively new part of the compiler,
-which is responsible for the **
+which is responsible for the **transforming of a high-level
+representation into a low-level representation**.
+
+As a result, it's **much easier to perform optimizations**.
+
+<note>
+
+Some compilers stop at this stage and produce an
+**intermediate representation** (and optimize it).
+
+</note>
+
+Next stages can be done by external tools, such as
+<shortcut>LLVM</shortcut>.
+
+</tab>
+<tab title="Backend">
+
+**Backend** is responsible for the **generating of the target code**.
+It includes:
+- **Instruction selection**: It's a process of selecting instructions depending on
+the target architecture.
+- **Register allocation**: It's a process of allocating registers,
+which usually requires a lot of analysis.
+- **Instruction scheduling**: It's used for modern CPUs, which have a lot of
+pipelines, like <shortcut>out-of-order execution</shortcut>, <shortcut>branch prediction</shortcut>,
+<shortcut>cache memory</shortcut>, etc.
+
+Keep in mind, that **backend has lots of optimizations**,
+which are sometimes private and not documented. 
+And instead of making backend on your own, it's better
+to use some existing tools, like <shortcut>LLVM</shortcut>.
+
+<note>
+
+In my opinion, **it's worth to try to implement backend**
+on your own, because it's a very interesting topic.
+
+</note>
 
 </tab>
 </tabs>
