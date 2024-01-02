@@ -284,6 +284,10 @@ int main() {
 </tabs>
 </procedure>
 
+This kind of approach, when compiler is compiling
+source code into machine code before execution,
+is called <emphasis>ahead-of-time compilation</emphasis>.
+
 ### 4. Just-in-time compilers
 
 <emphasis>Just-in-time compilers</emphasis> have appeared
@@ -295,7 +299,7 @@ them similar to interpreters.
 
 **e.g.:** <shortcut>PyPy</shortcut>, <shortcut>Java</shortcut>,
 <shortcut>JavaScript</shortcut>, <shortcut>WebAssembly</shortcut>,
-etc.
+<shortcut>LLVM</shortcut>, etc.
 
 _(nowadays, most of the languages support JIT compilation)._
 
@@ -305,6 +309,91 @@ In difference from interpreters, JIT compilers **don't
 execute source code directly**. Instead, they compile
 them first and then execute as a machine code.
 
+<tip>
+
 They can optimize machine code **during execution**,
 depending on factors like how often a piece of code
 is executed, what kind of input it receives, etc.
+
+It also means, that JIT compilers often try to assume
+some repetitive patterns in the code, which usually
+is not possible for standard compilers.
+
+</tip>
+
+## Compilation process
+
+In modern days, **compilers are usually used in
+pair with other tools**, which makes compilation
+process more complicated.
+
+Let's take a look at the compilation process of
+two different languages: <shortcut>C</shortcut> and <shortcut>Java</shortcut>.
+
+<procedure>
+
+```mermaid
+graph TD
+    subgraph ModernStructure["`**Modern structure (Java)**`"]
+        direction TB
+        MS_JIT["JIT compiler"] -- Machine code --> MS_User("User")
+        MS_User -- "`Source code
+        + Libraries`" --> MS_Compiler
+        MS_Compiler["Compiler"] -- "`Bytecode
+        + Runtime System`" --> MS_JIT
+    end
+    
+    subgraph TraditionalStructure["`**Traditional structure (C)**`"]
+        direction TB
+        TS_Linker["Linker"] -- Executable --> TS_User("User")
+        TS_User -- Source code --> TS_Preprocessor
+        TS_Preprocessor["Preprocessor"] -- Preprocessed code --> TS_Compiler
+        TS_Compiler["Compiler"] -- Assembly code --> TS_Assembler
+        TS_Assembler["Assembler"] -- "`Object code 
+        + Libraries`" --> TS_Linker
+    end
+```
+
+</procedure>
+
+<tabs>
+<tab title="Traditional structure">
+
+<shortcut>C</shortcut> was written in 1972, when
+compilers were used in a completely different way.
+
+<tip>
+
+It was a time, when people were mostly using
+<shortcut>assembly language</shortcut> and <shortcut>machine code</shortcut>.
+
+</tip>
+
+So, <shortcut>C</shortcut> was designed to work with
+<shortcut>assembly language</shortcut> and low-level
+environments, like <shortcut>UNIX</shortcut>.
+
+**Most of the approaches, which were used in the past,
+are mostly deprecated nowadays.**
+
+</tab>
+
+<tab title="Modern structure">
+
+<shortcut>Java</shortcut> was written in 1995, but
+it's still used as a modern language.
+
+<tip>
+
+One of the main features of <shortcut>Java</shortcut>
+is that it's cross-platform, which means that it
+can be compiled once and then executed on any
+target platform.
+
+</tip>
+
+It's not necessarily to use bytecode and JIT
+compilation, but it's a common approach nowadays.
+
+</tab>
+</tabs>
