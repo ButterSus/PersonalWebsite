@@ -1,18 +1,19 @@
-# Компиляторы
+# Compilers
 
-В этом разделе я конспектирую лекции по компиляторам,
-в частности набранные мной на лекциях от 
-<emphasis>Sebastian Hack</emphasis> на лекциях университета
-<emphasis>Saarbrücken</emphasis>.
+This section summarizes the lectures on compilers, in particular those I took from
+<emphasis>Sebastian Hack</emphasis> at the lectures of the
+<emphasis>Saarbrücken</emphasis> university.
 
 <img src="compilers-authors.png" width="540" alt="Compilers authors"/>
 
-Так как **оригинальный курс на английском**, то некоторые термины,
-а так же фрагменты текста, я оставил на английском языке.
+Since the **original course is in English**, I am going to write this section
+in English as well _(firstly I was thinking about writing it in Russian, but
+then I decided to write it in English, because it's more convenient for me)_.
 
 <warning>
 
-Материалы лекции являются закрытыми, поэтому я не могу их выложить.
+Lecture **materials are closed**, so I can't share them,
+but sometimes I will use screenshots from the lectures.
 
 </warning>
 
@@ -22,7 +23,7 @@
 
 </procedure>
 
-<procedure title="План">
+<procedure title="Table of contents">
 
 1. Introduction
 2. Lexical analysis

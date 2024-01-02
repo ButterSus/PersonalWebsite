@@ -397,3 +397,16 @@ compilation, but it's a common approach nowadays.
 
 </tab>
 </tabs>
+
+## Goals of compilers
+
+Originally, compilers were designed to translate
+source code into machine code, basically **translating
+program from language S to language T**, while
+preserving its semantics and thereby **implements S in T**.
+
+<procedure>
+
+Good compilers should also 
+
+</procedure>
