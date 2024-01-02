@@ -3,7 +3,7 @@
 In this topic, we will discover what is a compiler,
 how it works, and what are the types of compilers.
 
-**Don't skip this topic**, because it's very important
+**Don't skip this topic**, because it's crucial
 to understand the basics of compilers, before
 learning about more advanced topics.
 
@@ -117,9 +117,9 @@ if __name__ == "__main__":
 
 <procedure>
 
-**e.g.:** <shortcut>Python</shortcut>, <shortcut>JavaScript</shortcut>, <shortcut>Shell</shortcut>
+**e.g.: ** <shortcut>Python</shortcut>, <shortcut>JavaScript</shortcut>, <shortcut>Shell</shortcut>
 
-_(most common case usage are in command line tools and REPLs)._
+_(most common case usage is in command line tools and REPLs)._
 
 </procedure>
 
@@ -142,7 +142,7 @@ are very convenient to execute on the fly.
 reads in source code and translates it into an intermediate
 representation, which is then executed by a virtual machine.
 
-I think, that virtual machines are most commonly used
+I think that virtual machines are most commonly used
 for cross-platform support.
 
 <procedure>
@@ -204,8 +204,7 @@ public class Main {
 
 </procedure>
 
-Bytecode looks like a machine code, but it's still
-has a high-level constructions, like `if` statements,
+Bytecode looks like a machine code, but it still has a high-level constructions, like `if` statements,
 `method` calls, etc.
 
 <tip>
@@ -322,7 +321,7 @@ They can optimize machine code **during execution**,
 depending on factors like how often a piece of code
 is executed, what kind of input it receives, etc.
 
-It also means, that JIT compilers often try to assume
+It also means that JIT compilers often try to assume
 some repetitive patterns in the code, which usually
 is not possible for standard compilers.
 
@@ -342,7 +341,7 @@ I have an idea of a compiler, which will be able to
 
 <procedure>
 
-Nowadays, there are a lot of languages, which partially
+Nowadays, there are a lot of languages which partially
 support metaprogramming, like C++ with its templates,
 and `constexpr` functions, or Rust with its macros.
 
@@ -352,14 +351,14 @@ But I want to create a language, which will be able to
 fully support **changing syntax and semantics, compile-time
 custom code generation, etc.**
 
-Therefore, as it's main purpose is to create some
+Therefore, as its main purpose is to create some
 domain-specific languages very easily, it should
 also support **easy IDE integration**.
 
 <procedure>
 
 To do so, compiler should be able to **work as
-language server using compile-time concept**:
+a language server using compile-time concept**:
 [dynamic syntax highlighting, code completion, code navigation,
 refactoring, warnings and errors (static analysis)](
 https://nadeeshaangunasinghe.medium.com/why-use-language-server-aa9bb47207b8)
@@ -372,13 +371,14 @@ I'm not sure, but there should be **strict rules, defined by
 OOP principles**, in order to structure AST correctly.
 
 All backend stuff should be **implemented
-in a language itself**. It means all logic, that generates
-and optimizes code, should be written in a language itself.
+in a language itself**.
+It means all logic that generates
+and optimizes code should be written in a language itself.
 It will allow to **easily extend/override the language**.
 
 <note>
 
-If you are interested in this idea, [you can contact me,
+If you are interested in this idea, [you can contact me;
 I'm always open for collaboration](Home.md#contact-me) since I'm a student.
 
 </note>
@@ -386,7 +386,7 @@ I'm always open for collaboration](Home.md#contact-me) since I'm a student.
 ## Compilation process
 
 In modern days, **compilers are usually used in
-pair with other tools**, which makes compilation
+a pair with other tools**, which makes the compilation 
 process more complicated.
 
 Let's take a look at the compilation process of
@@ -426,7 +426,7 @@ compilers were used in a completely different way.
 
 <tip>
 
-It was a time, when people were mostly using
+It was a time when people were mostly using
 <shortcut>assembly language</shortcut> and <shortcut>machine code</shortcut>.
 
 </tip>
@@ -472,13 +472,13 @@ preserving its semantics and thereby **implements S in T**.
 Good compilers should also meet the following criteria:
 
 - **Correctness**: The compiler should not change the meaning of the program. 
-_(Like any performed optimizations should not change behavior of the program.)_
+_(Like any performed optimizations should not change the behavior of the program.)_
 - **Efficiency**: The compiler should produce code that is as efficient as possible,
 meaning that it mostly should use less time and memory.
 - **Low compilation time**: Not necessarily, but it's better to have a fast compiler.
-For example, it's very important to have <shortcut>linear time</shortcut> complexity.
+For example, it's crucial to have <shortcut>linear time</shortcut> complexity.
 - **Compatibility**: The compiler should be compatible with the other compilers
-and tools, which are used by users _(like IDEs, debuggers, etc.)_.
+and tools, which users use _(like IDEs, debuggers, etc.)_.
 - **Integration**: Good compiler will provide a good support for developers:
 _nice error messages, debugging tools, etc._
 
@@ -516,17 +516,17 @@ Each of these steps is
 [**usually independent of each other**](Context-Free-Grammars.md#what-is-a-context-free-grammar).
 
 It's called <emphasis>front-end</emphasis>, because it's the **only part of the compiler,
-which affects syntax and semantics** of the program.
+which affects the syntax and semantics** of the program.
 
 <note>
 
-Note, that **frontend doesn't perform any optimizations**.
+Note that **frontend doesn't perform any optimizations**.
 
 </note>
 </tab>
 <tab title="Middle-end">
 
-**Middle-end (Transformations)** is relatively new part of the compiler,
+**Middle end (Transformations)** is a relatively new part of the compiler,
 which is responsible for the **transforming of a high-level
 representation into a low-level representation**.
 
@@ -551,6 +551,7 @@ It includes:
 the target architecture.
 - **Register allocation**: It's a process of allocating registers,
 which usually requires a lot of analysis.
+_(It's a very complicated topic, as nowadays memory access is much, much slower than CPU operations.)_
 - **Instruction scheduling**: It's used for modern CPUs, which have a lot of
 pipelines, like <shortcut>out-of-order execution</shortcut>, <shortcut>branch prediction</shortcut>,
 <shortcut>cache memory</shortcut>, etc.
@@ -562,12 +563,174 @@ to use some existing tools, like <shortcut>LLVM</shortcut>.
 
 <note>
 
-In my opinion, **it's worth to try to implement backend**
-on your own, because it's a very interesting topic.
+In my opinion, **it's worth trying to implement backend**
+on your own, because it's an alluring topic.
 
 </note>
 
 </tab>
 </tabs>
+</procedure>
+
+<procedure title="Detailed example" collapsible="true">
+
+<img src="compilers-statement-compilation.png" width="720" alt="Statement compilation"/>
+
+<tabs>
+<tab title="1. Source code">
+
+Let's take a look at the following source code:
+
+```c
+res := 2 * in + initial;
+```
+
+We will see how it will be compiled into machine code,
+as it's a basic example.
+
+</tab>
+<tab title="2. Lexical analysis">
+
+First of all, **lexer will split the source code into tokens**,
+where each token has its value, type and position.
+
+| Order |    Token     |   Value   | Position |
+|:-----:|:------------:|:---------:|----------|
+|   1   | `identifier` |   `res`   | `0:2`    |
+|   2   |  `operator`  |   `:=`    | `4:5`    |     
+|   3   |   `number`   |    `2`    | `7:7`    |
+|   4   |  `operator`  |    `*`    | `9:9`    |
+|   5   | `identifier` |   `in`    | `11:12`  |
+|   6   |  `operator`  |    `+`    | `14:14`  |
+|   7   | `identifier` | `initial` | `16:22`  |
+|   8   |  `operator`  |    `;`    | `23:23`  |
+
+As you can see, **lexer doesn't care about spaces**;
+it just ignores them.
+(But it's not always the case)
+
+</tab>
+<tab title="3. Syntax analysis">
+
+Then, **parser will build an abstract syntax tree**.
+The lower the node is, the more priority it has.
+
+<note>
+
+Multiplication has a higher precedence than addition,
+and it's defined in the grammar.
+
+</note>
+</tab>
+<tab title="4. Semantic analysis">
+
+After that, **semantic analyzer will build a symbol table**,
+which will contain all the information about variables.
+
+<tip>
+
+Besides that, semantics also check types of the expressions,
+and it's called <emphasis>type checking</emphasis>.
+
+</tip>
+
+But still, **most of the information is still
+contained in the Abstract Syntax Tree**,
+and symbol table is just a helper.
+
+</tab>
+<tab title="5. Transformation">
+
+Then, **middle-end will transform the AST** into
+a more convenient representation, which is called
+<emphasis>IR code</emphasis>.
+
+```
+t1 = inttofloat 2
+t2 = load in
+t3 = mul t1 t2
+t4 = load initial
+t5 = add t3 t4
+store t5 res
+```
+
+This is staged, where **code is almost can be executed (by interpreter)**,
+but it's not optimized yet.
+
+</tab>
+<tab title="6. Optimization">
+
+After that, **middle-end will optimize the IR code**.
+
+```
+t2 = load in
+t3 = add t2, t2
+t4 = load initial
+t5 = add t3, t4
+store t5 res
+```
+
+As you can see, **some operations were removed, or replaced**
+by more efficient ones.
+
+</tab>
+<tab title="7. Code generation">
+
+Finally, **backend will generate the target code**.
+
+```
+movss in, %xmm0
+addss %xmm0, %xmm0
+addss initial, %xmm0
+movss %xmm0, res
+```
+
+Afterward, low-level optimizations will be performed,
+like <shortcut>register allocation</shortcut>, <shortcut>instruction scheduling</shortcut>.
+
+<note>
+
+Keep in mind, that **transformation from IR code to target code
+is the most complicated part of the compiler**.
+
+</note>
+
+</tab>
+</tabs>
+</procedure>
+
+## Lexical analysis
+
+<emphasis>Lexical analysis</emphasis> is a process of
+**converting a sequence of characters into a sequence of tokens**.
+
+<tip>
+
+The goal of lexical analysis is to make the parsing process
+a little bit easier.
+
+</tip>
+
+Each <emphasis>token</emphasis> is **meaningful chunk of text**.
+The **parser skips some of these tokens**, like
+<shortcut>whitespace</shortcut>, <shortcut>comments</shortcut>, etc.
+
+<procedure title="Example">
+
+<img src="compilers-lexical-analysis-example.png" width="720" alt="Lexical analysis example"/>
+
+It's worth to mention, that typically **lexer is implemented
+using an iterator style** _(one function that returns the next token)_.
+
+</procedure>
+
+## Syntax analysis
+
+<emphasis>Syntax analysis</emphasis> is a process of
+**analyzing the syntax of a program and building an abstract syntax tree**.
+
+<procedure>
+
+[//]: # (<img src="compilers-syntax-analysis-example.png" width="720" alt="Syntax analysis example"/>)
 
 </procedure>
