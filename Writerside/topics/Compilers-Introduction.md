@@ -703,6 +703,7 @@ is the most complicated part of the compiler**.
 
 <emphasis>Lexical analysis</emphasis> is a process of
 **converting a sequence of characters into a sequence of tokens**.
+As input it takes a string of text _(source code)_.
 
 <tip>
 
@@ -728,9 +729,68 @@ using an iterator style** _(one function that returns the next token)_.
 
 <emphasis>Syntax analysis</emphasis> is a process of
 **analyzing the syntax of a program and building an abstract syntax tree**.
+As input it takes a sequence of tokens, which are produced by lexer.
 
 <procedure>
 
-[//]: # (<img src="compilers-syntax-analysis-example.png" width="720" alt="Syntax analysis example"/>)
+It makes the analysis much easier, as now we can travel
+through the tree and handle each node separately.
+
+<img src="compilers-syntax-analysis-example.png" width="720" alt="Syntax analysis example"/>
+
+Mention that usually each node is bound to a token,
+but it's not always the case.
 
 </procedure>
+
+<tip>
+
+In contrast to the <emphasis>concrete syntax tree</emphasis>,
+**the AST can ignore some tokens**, like punctuation tokens _(like `;`)_.
+
+</tip>
+
+## Semantic analysis
+
+<emphasis>Semantic analysis</emphasis> is a process of
+**analyzing the semantics of a program and building a symbol table**.
+
+<tip>
+
+Also, tasks of semantic analysis depend on the language,
+and can be different.
+For example, in <shortcut>Java</shortcut>
+it's also handling <shortcut>access modifiers</shortcut>.
+
+</tip>
+
+This step is crucial, as it's responsible for
+**type checking** and **variable scoping**.
+So it **extends the AST** with additional information.
+
+<procedure>
+
+<img src="compilers-semantic-analysis-example.png" width="720" alt="Semantic analysis example"/>
+
+As you can see, now **each name is referenced** to a specific 
+declaration, and each **declaration has its type**.
+
+</procedure>
+
+## Transformation Phase
+
+<emphasis>Transformation phase</emphasis> is a process of
+**transforming the attributed AST into intermediate representation**.
+
+<tip>
+
+The goal is to _boil down_ the **AST into a more low-level
+representation**, which will be easier to optimize.
+
+Representation is usually called <emphasis>Intermediate Representation</emphasis>.
+
+</tip>
+
+Sometimes, **transformation phase is skipped** in older compilers,
+and they just generate machine code directly.
+
