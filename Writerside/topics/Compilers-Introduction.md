@@ -720,7 +720,7 @@ The **parser skips some of these tokens**, like
 
 <img src="compilers-lexical-analysis-example.png" width="720" alt="Lexical analysis example"/>
 
-It's worth to mention, that typically **lexer is implemented
+It's worth mentioning that typically **lexer is implemented
 using an iterator style** _(one function that returns the next token)_.
 
 </procedure>
@@ -785,12 +785,119 @@ declaration, and each **declaration has its type**.
 <tip>
 
 The goal is to _boil down_ the **AST into a more low-level
-representation**, which will be easier to optimize.
+format**, which will be easier to optimize.
 
-Representation is usually called <emphasis>Intermediate Representation</emphasis>.
+The format is usually called <emphasis>Intermediate Representation</emphasis>.
 
 </tip>
 
 Sometimes, **transformation phase is skipped** in older compilers,
 and they just generate machine code directly.
 
+<procedure title="Implementations" collapsible="true">
+
+- **control structures**: `if`, `while`, `for`, etc. are unrolled in 
+<shortcut>ASM</shortcut>-like code _(using labels, jumps, etc.)_.
+
+- **operators**: `+`, `-`, `*`, `/`, for primitive types are replaced by
+inline assembly instructions _(like `add`, `sub`, `mul`, `div`, etc.)_.
+
+- **functions**: are replaced by `call` and `ret` instructions.
+
+- **classes**: are completely removed, as they are usually can be
+already implemented using functions and structures.
+
+- **arrays**: are replaced by pointers, as they are just a syntactic sugar.
+
+- etc.
+
+</procedure>
+
+<note>
+
+It's not mentioned in the lecture, but I think that
+before the transformation phase, there should be
+**a step of high-level optimization**, as it's
+much easier to optimize high-level code with semantic information
+rather than IR code.
+
+</note>
+
+### Syntax-Directed Translation
+
+<emphasis>Syntax-directed translation</emphasis> is one of the
+most common approaches to the transformation phase, as it's
+**very easy to implement**.
+
+<procedure>
+
+Basically, when we are building an IR from AST, we can
+**walk through the tree, generating IR code for each node**.
+
+<img src="compilers-syntax-directed-translation-example.png" height="360" alt="Syntax-directed translation example"/>
+
+In this example, letters represent nodes _(like statements, if statements, etc.)_,
+and generated IR code is represented as a sequence of named pieces _(a1, b1, ...)_.
+
+</procedure>
+
+The only problem is that generated IR code is **very inefficient**.
+It's hard to optimize "across" siblings: peephole optimization
+to compensate.
+
+<tip>
+
+Early compilers generated ASM like this, today
+we build IR this way.
+
+</tip>
+
+### Intermediate Representation Ideas
+
+Assume we want to support `k` source languages and `n` target languages.
+
+<procedure>
+
+Then, we would need to implement `k * n` compilers, which is not
+very efficient if we want to support all of them.
+
+<img src="compilers-intermediate-representation-ideas.png" width="360" alt="Intermediate representation ideas"/>
+
+But instead, we can implement `k + n` compilers **using universal IR**,
+which maybe can affect the performance.
+
+</procedure>
+
+Actually, performance is not a problem, since **most of the optimizations
+can be performed on the IR level**.
+
+<procedure>
+
+**e.g.:** <shortcut>LLVM Bitcode</shortcut>, <shortcut>Java Bytecode</shortcut>, <shortcut>WebAssembly</shortcut>, etc.
+
+</procedure>
+
+<tabs>
+<tab title="Java Bytecode">
+<procedure>
+
+Here's an example of <shortcut>Java-Bytecode</shortcut>:
+
+<img src="compilers-intermediate-representation-java.png" width="400" alt="Intermediate representation example"/>
+
+</procedure>
+</tab>
+<tab title="LLVM Bitcode">
+<procedure>
+
+Here's an example of <shortcut>LLVM Bitcode</shortcut>:
+
+<img src="compilers-intermediate-representation-llvm.png" width="540" alt="Intermediate representation example"/>
+
+</procedure>
+</tab>
+</tabs>
+
+## Optimizations
+
+[//]: # (TODO)
