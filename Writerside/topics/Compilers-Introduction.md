@@ -816,10 +816,11 @@ already implemented using functions and structures.
 <note>
 
 It's not mentioned in the lecture, but I think that
-before the transformation phase, there should be
-**a step of high-level optimization**, as it's
-much easier to optimize high-level code with semantic information
-rather than IR code.
+before the transformation phase, there can be
+**a step of high-level optimization**, which will
+optimize the AST.
+_(Optimization levels are not
+really classified and have obscure boundaries)_
 
 </note>
 
@@ -900,4 +901,169 @@ Here's an example of <shortcut>LLVM Bitcode</shortcut>:
 
 ## Optimizations
 
-[//]: # (TODO)
+A really nice way to optimize code, depending on the
+concrete language semantics, is to **optimize the IR code**.
+
+<procedure>
+
+Optimization has various purposes:
+- **Improve performance**: As there are few levels of optimizations,
+some of them can be performed **only with a context of language-specific
+semantics**.
+_([Like inlining in Zig](https://zig.news/edyu/wtf-is-zig-comptime-and-inline-257b),
+optimizations in this step are often called <emphasis>middle-level optimizations</emphasis>.)_
+- **Prevent programmer bad practices**: In high-level languages, programmers
+are usually not aware of the performance, but more about the readability.
+For example, in <shortcut>C++</shortcut> it's nice to use array items
+with indexes `a[i + 1]`, but it's not very efficient, as we need to
+calculate the address of the item every time.
+- **Remove overhead from language abstractions**: Some language abstractions
+that have been compiled into IR code by syntax-directed translation may
+have some overhead, which can be removed by optimizations.
+_(mostly it's the common case for OOP languages)_
+- **Separation of concerns**: Some optimizations can be performed in several steps.
+This is done to make compiler development simpler and more structured.
+
+</procedure>
+
+<tip>
+
+Some optimizations are **language-specific**,
+and some of them are **language-independent**.
+
+Ones that are language-independent are usually implemented
+in the <shortcut>LLVM</shortcut> compiler.
+
+</tip>
+
+<procedure title="Example 1" collapsible="true">
+
+In this example, we will see how the following code in <shortcut>C</shortcut>:
+
+<img src="compilers-optimizing-away-abstractions.png" width="720" alt="Optimizing away abstractions example"/>
+
+The code is not very efficient, as it's using pointers, `memcpy`, etc.
+But it doesn't matter, as **the compiler will optimize it, as it knows
+all parameters and their types** at compile time.
+
+</procedure>
+
+<procedure title="Example 2" collapsible="true">
+
+Again, let's take a look at the following code in <shortcut>C</shortcut>:
+
+<img src="compilers-optimizing-triple-code.png" width="720" alt="Optimizing triple code example"/>
+
+There we're using loop optimization. However, this optimization is included
+in the <shortcut>LLVM</shortcut> compiler, so we don't need to implement it.
+
+</procedure>
+
+<procedure title="Example 3" collapsible="true">
+
+Sometimes, optimizations are **really dependent on the target machine**.
+In this example, we will see how cache memory can affect the performance.
+
+<img src="compilers-a-note-on-performance.png" width="720" alt="A note on performance example"/>
+
+As you can see, **right code is much more efficient**.
+
+This is because **reading in a row is much faster than reading in a column**,
+as it's much more cache-friendly.
+
+<img src="compilers-a-note-on-performance-contd.png" width="720" alt="A note on performance example (contd.)"/>
+
+Below is a more detailed explanation.
+
+</procedure>
+
+<procedure title="List of optimizations" collapsible="true">
+
+There are some common optimizations, which are usually implemented in compilers:
+
+<img src="compilers-list-of-optimizations.png" width="720" alt="List of optimizations"/>
+
+</procedure>
+
+## Modern challenges
+
+Nowadays compilers are used in many different areas,
+it's much more complicated than it was before.
+
+<tabs>
+<tab title="Challenges I">
+<procedure>
+<step>
+
+**Compile time has to be sub-quadratic** for the common case.
+It usually means that <shortcut>compilation time should be linear</shortcut> or at least
+less than quadratic.
+
+```tex
+T(n) \in \Theta(n^2) \Leftrightarrow \left[\,\begin{aligned}
+&T(n) \in O(n)& \\
+&T(n) \in O(n\cdot log_2(n))& \\
+&\ldots&
+\end{aligned}\right.-\text{nice time complexity}
+```
+
+</step>
+<step>
+
+**Most relevant code generation problems are NP-hard**.
+It means that <shortcut>most of the optimizations are not possible to be solved
+in polynomial time</shortcut>.
+_(It's a very complicated topic, if you are not familiar with it,
+you can read about it [here](https://en.wikipedia.org/wiki/NP-hardness){ignore-vars="true"}.)_
+
+</step>
+<step>
+
+**Target machines have resource constraints**.
+We should find a balance between <shortcut>performance,
+memory usage and compilation time</shortcut>,
+which also leads to the previous problems.
+
+</step>
+</procedure>
+</tab>
+<tab title="Challenges II">
+<procedure>
+<step>
+
+**Target machines are heterogeneous**.
+It means that architectures are different, nowadays,
+we have <shortcut>multicore CPUs</shortcut>, <shortcut>GPUs.</shortcut>
+<shortcut>TPUs</shortcut>, <shortcut>ASICs</shortcut>, etc. _Some
+of features are private and not documented, such as <shortcut>branch prediction</shortcut>,
+<shortcut>cache memory</shortcut>, <shortcut>out-of-order execution</shortcut>, etc._
+
+**It's often impossible to give a precise notion of _"optimality"_ with
+respect to the quality of the code**. We, as compiler developers,
+should also worry about language design, as it's crucial for
+the readability of the code.
+
+</step>
+<step>
+
+**End of Dennard scaling**.
+I'm not sure what authors meant by this _(it was mentioned in the lecture)_.
+
+But I think that it's about the fact that 
+<shortcut>CPU frequency is not increasing anymore</shortcut>,
+and we should find a way to make our code more efficient.
+
+</step>
+</procedure>
+</tab>
+</tabs>
+
+## Next topics
+
+Thanks for reading this topic! 
+I hope you enjoyed it.
+[Contact me if you have any suggestions or questions about this topic](Home.md#contact-me).
+
+I'm planning to write more topics about compilers, so stay tuned!
+In the next topic, we will learn about
+[**Lexical Analysis**](Compilers-Lexical-Analysis.md).
