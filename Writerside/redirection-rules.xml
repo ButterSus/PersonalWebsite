@@ -14,4 +14,8 @@
         <description>Created after removal of "Overview" from ButterSus's Personal Website</description>
         <accepts>Overview.html</accepts>
     </rule>
+    <rule id="40debcc2">
+        <description>Created after removal of "Notations" from ButterSus's Personal Website</description>
+        <accepts>Compiler-Lexical-Notations.html</accepts>
+    </rule>
 </rules>

@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
 <procedure>
 
-**e.g.: ** <shortcut>Python</shortcut>, <shortcut>JavaScript</shortcut>, <shortcut>Shell</shortcut>
+**e.g.:** <shortcut>Python</shortcut>, <shortcut>JavaScript</shortcut>, <shortcut>Shell</shortcut>
 
 _(most common case usage is in command line tools and REPLs)._
 
@@ -386,7 +386,7 @@ I'm always open for collaboration](Home.md#contact-me) since I'm a student.
 ## Compilation process
 
 In modern days, **compilers are usually used in
-a pair with other tools**, which makes the compilation 
+a pair with other tools**, which makes the compilation
 process more complicated.
 
 Let's take a look at the compilation process of
@@ -404,7 +404,7 @@ graph TD
         MS_Compiler["Compiler"] -- "`Bytecode
         + Runtime System`" --> MS_JIT
     end
-    
+
     subgraph TraditionalStructure["`**Traditional structure (C)**`"]
         direction TB
         TS_Linker["Linker"] -- Executable --> TS_User("User")
@@ -471,16 +471,16 @@ preserving its semantics and thereby **implements S in T**.
 
 Good compilers should also meet the following criteria:
 
-- **Correctness**: The compiler should not change the meaning of the program. 
-_(Like any performed optimizations should not change the behavior of the program.)_
+- **Correctness**: The compiler should not change the meaning of the program.
+  _(Like any performed optimizations should not change the behavior of the program.)_
 - **Efficiency**: The compiler should produce code that is as efficient as possible,
-meaning that it mostly should use less time and memory.
+  meaning that it mostly should use less time and memory.
 - **Low compilation time**: Not necessarily, but it's better to have a fast compiler.
-For example, it's crucial to have <shortcut>linear time</shortcut> complexity.
+  For example, it's crucial to have <shortcut>linear time</shortcut> complexity.
 - **Compatibility**: The compiler should be compatible with the other compilers
-and tools, which users use _(like IDEs, debuggers, etc.)_.
+  and tools, which users use _(like IDEs, debuggers, etc.)_.
 - **Integration**: Good compiler will provide a good support for developers:
-_nice error messages, debugging tools, etc._
+  _nice error messages, debugging tools, etc._
 
 </procedure>
 
@@ -505,14 +505,15 @@ can raise an error**.
 **Frontend** is responsible for the **analysis** of the source code.
 
 It includes:
-- **Lexical analysis (Lexing)**: It's a process of converting a sequence of characters
-into a sequence of tokens.
-- **Syntax analysis (Parsing)**: It's a process of analyzing the syntax of a program
-and building an abstract syntax tree.
-- **Semantic analysis (Analysis)**: It's a process of analyzing the semantics of a program
-and building a symbol table.
 
-Each of these steps is 
+- **Lexical analysis (Lexing)**: It's a process of converting a sequence of characters
+  into a sequence of tokens.
+- **Syntax analysis (Parsing)**: It's a process of analyzing the syntax of a program
+  and building an abstract syntax tree.
+- **Semantic analysis (Analysis)**: It's a process of analyzing the semantics of a program
+  and building a symbol table.
+
+Each of these steps is
 [**usually independent of each other**](Context-Free-Grammars.md#what-is-a-context-free-grammar).
 
 It's called <emphasis>front-end</emphasis>, because it's the **only part of the compiler,
@@ -547,17 +548,19 @@ Next stages can be done by external tools, such as
 
 **Backend** is responsible for the **generating of the target code**.
 It includes:
+
 - **Instruction selection**: It's a process of selecting instructions depending on
-the target architecture.
+  the target architecture.
 - **Register allocation**: It's a process of allocating registers,
-which usually requires a lot of analysis.
-_(It's a very complicated topic, as nowadays memory access is much, much slower than CPU operations.)_
+  which usually requires a lot of analysis.
+  _(It's a very complicated topic, as nowadays memory access is much, much slower than CPU operations.)_
 - **Instruction scheduling**: It's used for modern CPUs, which have a lot of
-pipelines, like <shortcut>out-of-order execution</shortcut>, <shortcut>branch prediction</shortcut>,
+  pipelines, like <shortcut>out-of-order execution</shortcut>, <shortcut>branch prediction</shortcut>,
+
 <shortcut>cache memory</shortcut>, etc.
 
 Keep in mind, that **backend has lots of optimizations**,
-which are sometimes private and not documented. 
+which are sometimes private and not documented.
 And instead of making backend on your own, it's better
 to use some existing tools, like <shortcut>LLVM</shortcut>.
 
@@ -772,7 +775,7 @@ So it **extends the AST** with additional information.
 
 <img src="compilers-semantic-analysis-example.png" width="720" alt="Semantic analysis example"/>
 
-As you can see, now **each name is referenced** to a specific 
+As you can see, now **each name is referenced** to a specific
 declaration, and each **declaration has its type**.
 
 </procedure>
@@ -796,16 +799,17 @@ and they just generate machine code directly.
 
 <procedure title="Implementations" collapsible="true">
 
-- **control structures**: `if`, `while`, `for`, etc. are unrolled in 
+- **control structures**: `if`, `while`, `for`, etc. are unrolled in
+
 <shortcut>ASM</shortcut>-like code _(using labels, jumps, etc.)_.
 
 - **operators**: `+`, `-`, `*`, `/`, for primitive types are replaced by
-inline assembly instructions _(like `add`, `sub`, `mul`, `div`, etc.)_.
+  inline assembly instructions _(like `add`, `sub`, `mul`, `div`, etc.)_.
 
 - **functions**: are replaced by `call` and `ret` instructions.
 
 - **classes**: are completely removed, as they are usually can be
-already implemented using functions and structures.
+  already implemented using functions and structures.
 
 - **arrays**: are replaced by pointers, as they are just a syntactic sugar.
 
@@ -907,22 +911,23 @@ concrete language semantics, is to **optimize the IR code**.
 <procedure>
 
 Optimization has various purposes:
+
 - **Improve performance**: As there are few levels of optimizations,
-some of them can be performed **only with a context of language-specific
-semantics**.
-_([Like inlining in Zig](https://zig.news/edyu/wtf-is-zig-comptime-and-inline-257b),
-optimizations in this step are often called <emphasis>middle-level optimizations</emphasis>.)_
+  some of them can be performed **only with a context of language-specific
+  semantics**.
+  _([Like inlining in Zig](https://zig.news/edyu/wtf-is-zig-comptime-and-inline-257b),
+  optimizations in this step are often called <emphasis>middle-level optimizations</emphasis>.)_
 - **Prevent programmer bad practices**: In high-level languages, programmers
-are usually not aware of the performance, but more about the readability.
-For example, in <shortcut>C++</shortcut> it's nice to use array items
-with indexes `a[i + 1]`, but it's not very efficient, as we need to
-calculate the address of the item every time.
+  are usually not aware of the performance, but more about the readability.
+  For example, in <shortcut>C++</shortcut> it's nice to use array items
+  with indexes `a[i + 1]`, but it's not very efficient, as we need to
+  calculate the address of the item every time.
 - **Remove overhead from language abstractions**: Some language abstractions
-that have been compiled into IR code by syntax-directed translation may
-have some overhead, which can be removed by optimizations.
-_(mostly it's the common case for OOP languages)_
+  that have been compiled into IR code by syntax-directed translation may
+  have some overhead, which can be removed by optimizations.
+  _(mostly it's the common case for OOP languages)_
 - **Separation of concerns**: Some optimizations can be performed in several steps.
-This is done to make compiler development simpler and more structured.
+  This is done to make compiler development simpler and more structured.
 
 </procedure>
 
@@ -1049,7 +1054,7 @@ the readability of the code.
 **End of Dennard scaling**.
 I'm not sure what authors meant by this _(it was mentioned in the lecture)_.
 
-But I think that it's about the fact that 
+But I think that it's about the fact that
 <shortcut>CPU frequency is not increasing anymore</shortcut>,
 and we should find a way to make our code more efficient.
 
@@ -1060,7 +1065,7 @@ and we should find a way to make our code more efficient.
 
 ## Next topics
 
-Thanks for reading this topic! 
+Thanks for reading this topic!
 I hope you enjoyed it.
 [Contact me if you have any suggestions or questions about this topic](Home.md#contact-me).
 
