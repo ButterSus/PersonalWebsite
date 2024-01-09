@@ -532,7 +532,8 @@ Let's assume we have the next input: `2.14e+s`:
    **try to find another token with `e+s`**.
 5. We will discover other approaches to handle this case later when we talk about
    **deterministic automata**.
-6. 
+6.
+
 </procedure>
 
 ### The Language Accepted by the FSM
@@ -592,3 +593,68 @@ We can also define language using FSM.
 ```
 
 </procedure>
+
+### Theorem
+
+Finally, we can give a formal definition of regular languages.
+
+<procedure title="Regular Language">
+
+```tex
+\begin{align}
+&\forall R(\texttt{for all regular languages})&\\
+&\Rightarrow \exists M: L(M) = R&\\
+\end{align} 
+```
+
+</procedure>
+
+<procedure title="Regular Expression">
+
+```tex
+\begin{align}
+&\forall r(\texttt{for all regular expressions})&\\
+&\Rightarrow \exists M(r): L(M) = L(r)&\\
+\end{align} 
+```
+
+</procedure>
+
+### Constructive Proof
+
+Firstly, we need to **construct automata with one final state and one transition**:
+<img src="compilers-constructive-proof-firstly.png" alt="FSM" width="160" style="inline" border-effect="rounded"/>
+
+Then we can **decompose r and develop the NFSM** according to the following rules:
+_(until the whole expression is decomposed)_
+
+<table>
+<tr>
+  <td><control>FSM</control></td>
+  <td><control>RegEx</control></td>
+  <td><control>Meaning</control></td>
+</tr>
+<tr>
+  <td><img src="compilers-constructive-proof-fragment-1.png" style="inline" alt="FSM" width="400" border-effect="rounded"/></td>
+  <td><code-block lang="tex">$r_1 \mid r_2</code-block></td>
+  <td><emphasis>Union</emphasis> of two languages</td>
+</tr>
+<tr>
+  <td><img src="compilers-constructive-proof-fragment-2.png" style="inline" alt="FSM" width="480" border-effect="rounded"/></td>
+  <td><code-block lang="tex">$r_1 r_2</code-block></td>
+  <td><emphasis>Concatenation</emphasis> of two languages</td>
+</tr>
+<tr>
+  <td><img src="compilers-constructive-proof-fragment-3.png" style="inline" alt="FSM" width="480" border-effect="rounded"/></td>
+  <td><code-block lang="tex">$r^*</code-block></td>
+  <td><emphasis>Kleene star</emphasis> of a language
+<emphasis>(We are using epsilon transition to avoid collision with other transitions of `q` & `p`)</emphasis></td>
+</tr>
+</table>
+
+<tip>
+
+All **other operations can be decomposed** to these three. _(Except for look-ahead and look-behind)_
+
+</tip>
+
