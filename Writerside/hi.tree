@@ -11,15 +11,20 @@
         <toc-element topic="Context-Free-Grammars.md"/>
     </toc-element>
     <toc-element topic="Winter-Session.md">
-        <toc-element topic="Algebra.md">
+        <toc-element toc-title="Алгебра">
+            <toc-element topic="Algebra.md"/>
             <toc-element topic="Pitsyn-Tasks.md"/>
         </toc-element>
-        <toc-element topic="Calculus-1.md"/>
-        <toc-element topic="Calculus-2.md"/>
-        <toc-element topic="Calculus-3.md"/>
-        <toc-element topic="Physics-1.md"/>
-        <toc-element topic="Physics-2.md"/>
-        <toc-element topic="Physics-3.md"/>
+        <toc-element toc-title="Матанализ">
+            <toc-element topic="Calculus-1.md"/>
+            <toc-element topic="Calculus-2.md"/>
+            <toc-element topic="Calculus-3.md"/>
+        </toc-element>
+        <toc-element toc-title="Физика">
+            <toc-element topic="Physics-1.md"/>
+            <toc-element topic="Physics-2.md"/>
+            <toc-element topic="Physics-3.md"/>
+        </toc-element>
     </toc-element>
     <toc-element topic="Digital-Design.md"/>
 </instance-profile>

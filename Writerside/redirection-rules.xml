@@ -18,4 +18,28 @@
         <description>Created after removal of "Notations" from ButterSus's Personal Website</description>
         <accepts>Compiler-Lexical-Notations.html</accepts>
     </rule>
+    <rule id="3f896201">
+        <description>Created after removal of "Starter" from ButterSus's Personal Website</description>
+        <accepts>Starter.html</accepts>
+    </rule>
+    <rule id="17b6bd65">
+        <description>Created after removal of "How to" from ButterSus's Personal Website</description>
+        <accepts>How-to.html</accepts>
+    </rule>
+    <rule id="7ee876e6">
+        <description>Created after removal of "Overview" from ButterSus's Personal Website</description>
+        <accepts>Overview.html</accepts>
+    </rule>
+    <rule id="4dc26038">
+        <description>Created after removal of "Tutorial" from ButterSus's Personal Website</description>
+        <accepts>Tutorial.html</accepts>
+    </rule>
+    <rule id="19ae00dc">
+        <description>Created after removal of "Topic title" from ButterSus's Personal Website</description>
+        <accepts>Starter.html</accepts>
+    </rule>
+    <rule id="7d2c6fdf">
+        <description>Created after removal of "Section Starting Page" from ButterSus's Personal Website</description>
+        <accepts>Section-Starting-Page.html</accepts>
+    </rule>
 </rules>
