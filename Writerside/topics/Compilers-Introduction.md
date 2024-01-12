@@ -34,25 +34,28 @@ web browsers, databases, and even hardware.
 
 <step>
 
-**Web browsers** use compilers to compile JavaScript to execute protocols.
+Web browsers use **JavaScript engines** like V8 _(used in Chrome and Edge)_
+and SpiderMonkey _(used in Firefox)_ to compile JavaScript code into machine code.
+This process happens just-in-time during execution,
+allowing for efficient processing and improved performance of web applications.
 
 </step>
 
 <step>
 
-**Databases** use compilers to compile SQL queries to handle them efficiently.
+Interpreters are used in **databases** to compile SQL queries to handle them efficiently.
 
 </step>
 
 <step>
 
-**Hardware** uses compilers to compile hardware description languages to machine code.
+Verilog programmers use compilers to compile **hardware description languages** to machine code
 
 </step>
 
 <step>
 
-**Programming languages** use compilers to compile source code to executable files.
+Programmers use compilers to compile source code from **programming language** to executable files.
 
 </step>
 
@@ -65,7 +68,7 @@ different approaches to the compilation process.
 
 ### 1. Interpreters
 
-<emphasis>Interpreters</emphasis> are compilers that
+<emphasis>Interpreters</emphasis> are translators that
 reads in source code statement by statement and executes 
 them directly.
 
@@ -383,6 +386,14 @@ I'm always open for collaboration](Home.md#contact-me) since I'm a student.
 
 </note>
 
+<procedure>
+
+There are some examples: [Meta II](https://en.wikipedia.org/wiki/META_II), [MPS](https://www.jetbrains.com/mps/),
+[Meta Cedille](https://github.com/WhatisRT/meta-cedille),
+[Language workbench](https://en.wikipedia.org/wiki/Language_workbench)
+
+</procedure>
+
 ## Compilation process
 
 In modern days, **compilers are usually used in
@@ -556,8 +567,7 @@ It includes:
   _(It's a very complicated topic, as nowadays memory access is much, much slower than CPU operations.)_
 - **Instruction scheduling**: It's used for modern CPUs, which have a lot of
   pipelines, like <shortcut>out-of-order execution</shortcut>, <shortcut>branch prediction</shortcut>,
-
-<shortcut>cache memory</shortcut>, etc.
+  <shortcut>cache memory</shortcut>, etc.
 
 Keep in mind, that **backend has lots of optimizations**,
 which are sometimes private and not documented.

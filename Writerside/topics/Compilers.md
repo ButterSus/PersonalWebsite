@@ -4,10 +4,10 @@ This section summarizes the lectures on compilers, in particular those I took fr
 <emphasis>Sebastian Hack</emphasis> at the lectures of the
 <emphasis>Saarbrücken</emphasis> university.
 
-<img src="compilers-authors.png" width="540" alt="Compilers authors"/>
+<img src="compilers-authors.png" width="540" alt="Compiler authors"/>
 
 Since the **original course is in English**, I am going to write this section
-in English as well _(firstly I was thinking about writing it in Russian, but
+in English as well _(firstly, I was thinking about writing it in Russian, but
 then I decided to write it in English, because it's more convenient for me)_.
 
 <warning>
